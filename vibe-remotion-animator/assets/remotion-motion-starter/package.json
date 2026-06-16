@@ -1,0 +1,24 @@
+{
+  "name": "__PROJECT_NAME__",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts MotionCanvas out/motion.mp4",
+    "still": "remotion still src/index.ts MotionCanvas out/still.png",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "__REMOTION_VERSION__",
+    "@remotion/zod-types": "__REMOTION_VERSION__",
+    "remotion": "__REMOTION_VERSION__",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.8.3"
+  }
+}

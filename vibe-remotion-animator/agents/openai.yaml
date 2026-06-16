@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vibe Remotion Animator"
+  short_description: "Flexible Remotion motion generator"
+  default_prompt: "Use $vibe-remotion-animator to create a polished Remotion animation from a creative brief."
