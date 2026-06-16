@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考生画像系统 · 可视化原型</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy-900: #0B1A2E; --navy-800: #122240; --navy-700: #1A2D50; --navy-600: #1E3A5F;
+    --blue-600: #2E86C1; --blue-500: #3498DB; --blue-400: #5DADE2; --blue-300: #85C1E9;
+    --blue-200: #AED6F1; --blue-100: #D6EAF8; --blue-50: #EBF5FB;
+    --green-500: #27AE60; --orange-500: #E67E22; --red-500: #E74C3C;
+    --gray-900: #1A1A1A; --gray-700: #333333; --gray-500: #555555; --gray-300: #CCCCCC; --gray-100: #F2F4F4;
+    --white: #FFFFFF;
+  }
+  body { font-family: 'Noto Sans SC', -apple-system, sans-serif; background: #F0F3F7; color: var(--gray-900); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .page-container { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+  .page-header { text-align: center; margin-bottom: 48px; }
+  .page-header .badge { display: inline-block; background: linear-gradient(135deg, var(--blue-600), var(--navy-600)); color: white; font-size: 12px; font-weight: 500; padding: 4px 14px; border-radius: 20px; letter-spacing: 1px; margin-bottom: 16px; }
+  .page-header h1 { font-size: 32px; font-weight: 900; color: var(--navy-900); margin-bottom: 8px; }
+  .page-header p { font-size: 15px; color: var(--gray-500); max-width: 600px; margin: 0 auto; }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .section-label .num { width: 32px; height: 32px; background: var(--navy-900); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .section-label h2 { font-size: 22px; font-weight: 700; color: var(--navy-900); }
+  .section-label .subtitle { font-size: 13px; color: var(--gray-500); font-weight: 400; }
+  .card-wrapper { background: white; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden; margin-bottom: 56px; }
+
+  /* === PROFILE CARD === */
+  .profile-banner { background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-600) 60%, var(--blue-600) 100%); padding: 32px 36px 28px; color: white; position: relative; overflow: hidden; }
+  .profile-banner::after { content: ''; position: absolute; right: -40px; top: -40px; width: 200px; height: 200px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+  .banner-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; position: relative; z-index: 1; }
+  .banner-left h3 { font-size: 26px; font-weight: 900; margin-bottom: 4px; }
+  .banner-left .meta { font-size: 13px; color: rgba(255,255,255,0.7); }
+  .banner-left .meta span { margin-right: 16px; }
+  .grade-badge { background: linear-gradient(135deg, #F1C40F, #F39C12); color: var(--navy-900); font-size: 20px; font-weight: 900; width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(241,196,15,0.4); }
+  .metrics-row { display: flex; gap: 0; position: relative; z-index: 1; }
+  .metric { flex: 1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.1); }
+  .metric:last-child { border-right: none; }
+  .metric .value { font-size: 24px; font-weight: 900; }
+  .metric .label { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+  .profile-body { padding: 28px 36px 32px; }
+  .body-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .info-block h4 { font-size: 12px; font-weight: 700; color: var(--blue-600); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--blue-100); }
+  .direction-tag { display: inline-block; background: var(--blue-50); color: var(--blue-600); font-size: 13px; font-weight: 500; padding: 5px 14px; border-radius: 6px; margin-right: 6px; margin-bottom: 6px; border: 1px solid var(--blue-200); }
+  .paper-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; padding: 10px 12px; background: var(--gray-100); border-radius: 8px; border-left: 3px solid var(--blue-600); }
+  .paper-item.star-paper { border-left-color: #F1C40F; background: #FFFDF5; }
+  .paper-icon { width: 28px; height: 28px; background: var(--blue-600); color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .paper-item.star-paper .paper-icon { background: linear-gradient(135deg, #F1C40F, #F39C12); }
+  .paper-info { flex: 1; min-width: 0; }
+  .paper-info .title { font-weight: 600; color: var(--gray-900); font-size: 13px; line-height: 1.4; }
+  .paper-info .detail { font-size: 11px; color: var(--gray-500); margin-top: 3px; }
+  .paper-tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; margin-right: 4px; }
+  .paper-tag.conf { background: #EBF5FB; color: var(--blue-600); }
+  .paper-tag.first { background: #FEF9E7; color: #B7950B; }
+  .rec-block { background: #F8FFF8; border: 1px solid #D5F5E3; border-radius: 8px; padding: 14px 16px; }
+  .rec-block .rec-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .rec-block .rec-name { font-weight: 600; font-size: 14px; }
+  .rec-level { background: var(--green-500); color: white; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 4px; }
+  .risk-section { grid-column: 1 / -1; background: #FFF9F0; border: 1px solid #FDEBD0; border-radius: 8px; padding: 14px 16px; margin-top: 4px; }
+  .risk-section h4 { font-size: 12px; font-weight: 700; color: var(--orange-500); letter-spacing: 1px; margin-bottom: 8px; }
+  .risk-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gray-700); margin-bottom: 4px; }
+  .risk-icon { width: 6px; height: 6px; background: var(--orange-500); border-radius: 50%; flex-shrink: 0; }
+  .summary-bar { grid-column: 1 / -1; background: linear-gradient(135deg, var(--navy-900), var(--navy-600)); color: white; border-radius: 8px; padding: 14px 20px; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 10px; }
+
+  /* === RADAR === */
+  .radar-section { padding: 32px 36px; }
+  .radar-container { display: flex; gap: 40px; align-items: center; }
+  .radar-chart-area { flex: 0 0 420px; }
+  .radar-chart-area svg { width: 420px; height: 420px; }
+  .radar-legend { flex: 1; }
+  .radar-legend h3 { font-size: 16px; font-weight: 700; color: var(--navy-900); margin-bottom: 20px; }
+  .legend-item { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding: 10px 14px; background: var(--gray-100); border-radius: 8px; }
+  .legend-item:hover { background: var(--blue-50); }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+  .legend-info { flex: 1; }
+  .legend-info .name { font-size: 13px; font-weight: 600; color: var(--gray-900); }
+  .legend-info .desc { font-size: 11px; color: var(--gray-500); }
+  .legend-score { font-size: 22px; font-weight: 900; color: var(--navy-900); }
+  .legend-score.low { color: var(--red-500); }
+  .compare-toggle { display: flex; gap: 8px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--gray-300); }
+  .compare-btn { padding: 6px 16px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1.5px solid var(--gray-300); background: white; color: var(--gray-700); }
+  .compare-btn.active { background: var(--blue-600); color: white; border-color: var(--blue-600); }
+
+  /* === HEATMAP === */
+  .heatmap-section { padding: 32px 36px; }
+  .heatmap-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .heatmap-header h3 { font-size: 18px; font-weight: 700; color: var(--navy-900); }
+  .heatmap-legend { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--gray-500); }
+  .heatmap-legend .swatch { width: 16px; height: 16px; border-radius: 3px; }
+  .heatmap-table { width: 100%; border-collapse: separate; border-spacing: 4px; }
+  .heatmap-table th { font-size: 12px; font-weight: 600; color: var(--gray-500); padding: 8px 12px; text-align: center; }
+  .heatmap-table th.row-header { text-align: right; padding-right: 16px; white-space: nowrap; }
+  .heatmap-table td { text-align: center; padding: 14px 12px; border-radius: 8px; font-weight: 700; font-size: 18px; color: white; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+  .heatmap-table td:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 2; }
+  .heatmap-table td .sub { display: block; font-size: 10px; font-weight: 400; opacity: 0.7; margin-top: 2px; }
+  .stats-row { display: flex; gap: 16px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--gray-100); }
+  .stat-card { flex: 1; background: var(--gray-100); border-radius: 10px; padding: 16px; text-align: center; }
+  .stat-card .num { font-size: 28px; font-weight: 900; color: var(--navy-900); }
+  .stat-card .desc { font-size: 11px; color: var(--gray-500); margin-top: 4px; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--gray-500); margin-top: 16px; }
+</style>
+</head>
+<body>
+<div class="page-container">
+  <div class="page-header">
+    <div class="badge">PROTOTYPE</div>
+    <h1>考生人才画像系统 · 可视化原型</h1>
+    <p>基于真实考生材料的可视化原型模板，替换数据即可复用</p>
+  </div>
+
+  <!-- SECTION 1: PROFILE CARD -->
+  <div class="section-label"><div class="num">1</div><div><h2>考生档案卡</h2><span class="subtitle">研究员10秒出判断——170页材料压缩成一页结构化档案</span></div></div>
+  <div class="card-wrapper">
+    <div class="profile-banner">
+      <div class="banner-top">
+        <div class="banner-left">
+          <h3>{{NAME}}</h3>
+          <div class="meta"><span>{{STUDENT_ID}}</span><span>{{UNIVERSITY}}</span><span>{{MAJOR}}</span></div>
+        </div>
+        <div class="grade-badge">{{GRADE}}</div>
+      </div>
+      <div class="metrics-row">
+        <div class="metric"><div class="value">{{GPA}}</div><div class="label">GPA / 100</div></div>
+        <div class="metric"><div class="value">{{RANK_MAJOR}}</div><div class="label">专业排名</div></div>
+        <div class="metric"><div class="value">{{RANK_TOTAL}}</div><div class="label">大类排名</div></div>
+        <div class="metric"><div class="value">{{CET6}}</div><div class="label">CET-6</div></div>
+        <div class="metric"><div class="value">{{PAPER_COUNT}}</div><div class="label">工作论文</div></div>
+        <div class="metric"><div class="value">{{CONF_COUNT}}</div><div class="label">论坛报告</div></div>
+      </div>
+    </div>
+    <div class="profile-body">
+      <div class="body-grid">
+        <!-- 研究方向 -->
+        <div class="info-block">
+          <h4>研究方向</h4>
+          <div>{{DIRECTION_TAGS}}</div>
+        </div>
+        <!-- 学术产出 -->
+        <div class="info-block">
+          <h4>学术产出</h4>
+          <div>{{PAPERS_LIST}}</div>
+        </div>
+        <!-- 核心课程 -->
+        <div class="info-block">
+          <h4>核心课程（≥95分）</h4>
+          <div>{{KEY_COURSES}}</div>
+        </div>
+        <!-- 推荐评价 -->
+        <div class="info-block">
+          <h4>推荐评价</h4>
+          <div>{{RECOMMENDATION}}</div>
+        </div>
+        <!-- 风险项 -->
+        <div class="risk-section">
+          <h4>⚠ 待确认 / 风险项</h4>
+          <div>{{RISK_ITEMS}}</div>
+        </div>
+        <!-- 综合判断 -->
+        <div class="summary-bar">
+          <span>💡</span><span>{{SUMMARY}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: RADAR CHART -->
+  <div class="section-label"><div class="num">2</div><div><h2>个体雷达图</h2><span class="subtitle">研究员快速判断一个人强在哪弱在哪——支持多人overlay对比</span></div></div>
+  <div class="card-wrapper">
+    <div class="radar-section">
+      <div class="radar-container">
+        <div class="radar-chart-area">
+          <svg viewBox="0 0 420 420" id="radarSvg"></svg>
+        </div>
+        <div class="radar-legend">
+          <h3>维度评分明细</h3>
+          <div class="legend-item"><div class="legend-dot" style="background:#2E86C1"></div><div class="legend-info"><div class="name">学术能力</div><div class="desc">论文数量·作者排序·发表/会议级别</div></div><div class="legend-score">95</div></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#27AE60"></div><div class="legend-info"><div class="name">研究潜力</div><div class="desc">研究计划质量·方向匹配·自驱学习证据</div></div><div class="legend-score">98</div></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#8E44AD"></div><div class="legend-info"><div class="name">基础素养</div><div class="desc">GPA·排名·核心课成绩·英语·竞赛</div></div><div class="legend-score">92</div></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#E67E22"></div><div class="legend-info"><div class="name">材料完整度</div><div class="desc">7项材料是否齐全·信息是否自洽</div></div><div class="legend-score">90</div></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#E74C3C"></div><div class="legend-info"><div class="name">风险指数</div><div class="desc">材料矛盾·信息缺失·异常信号（反向分）</div></div><div class="legend-score low">15</div></div>
+          <div class="compare-toggle"><button class="compare-btn active" onclick="showRadar('single')">仅当前考生</button><button class="compare-btn" onclick="showRadar('compare')">叠加对比</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HEATMAP -->
+  <div class="section-label"><div class="num">3</div><div><h2>群体分布热力图</h2><span class="subtitle">招生负责人一眼看生源结构——点击任意格下钻具体考生列表</span></div></div>
+  <div class="card-wrapper">
+    <div class="heatmap-section">
+      <div class="heatmap-header"><h3>{{YEAR}}级考生分布</h3><div class="heatmap-legend"><span>人数少</span><div class="swatch" style="background:#D6EAF8"></div><div class="swatch" style="background:#5DADE2"></div><div class="swatch" style="background:#2E86C1"></div><div class="swatch" style="background:#1A5276"></div><span>人数多</span></div></div>
+      {{HEATMAP_TABLE}}
+      <div class="stats-row">{{STAT_CARDS}}</div>
+    </div>
+  </div>
+  <div class="footer-note">人才画像系统可视化原型 · 替换{{变量}}即可生成新考生原型</div>
+</div>
+<script>
+const CX=210,CY=210,R=160;
+const axes=[
+  {name:'学术能力',score:95,color:'#2E86C1'},
+  {name:'研究潜力',score:98,color:'#27AE60'},
+  {name:'基础素养',score:92,color:'#8E44AD'},
+  {name:'材料完整度',score:90,color:'#E67E22'},
+  {name:'风险指数',score:15,color:'#E74C3C'}
+];
+const compareData=[{name:'学术能力',score:78},{name:'研究潜力',score:65},{name:'基础素养',score:88},{name:'材料完整度',score:75},{name:'风险指数',score:35}];
+const N=axes.length,angleStep=2*Math.PI/N,startAngle=-Math.PI/2;
+function getPoint(i,r){const a=startAngle+i*angleStep;return{x:CX+r*Math.cos(a),y:CY+r*Math.sin(a)}}
+function drawRadar(showCompare){
+  const svg=document.getElementById('radarSvg');svg.innerHTML='';
+  for(let ring=1;ring<=5;ring++){const rr=R*ring/5;let pts=[];for(let i=0;i<N;i++)pts.push(`${getPoint(i,rr).x},${getPoint(i,rr).y}`);const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');p.setAttribute('points',pts.join(' '));p.setAttribute('fill','none');p.setAttribute('stroke',ring===5?'#CCD1D1':'#E8E8E8');p.setAttribute('stroke-width',ring===5?'1.5':'0.8');svg.appendChild(p)}
+  for(let i=0;i<N;i++){const p=getPoint(i,R);const l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',CX);l.setAttribute('y1',CY);l.setAttribute('x2',p.x);l.setAttribute('y2',p.y);l.setAttribute('stroke','#D5D8DC');l.setAttribute('stroke-width','0.8');svg.appendChild(l);const lp=getPoint(i,R+28);const t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x',lp.x);t.setAttribute('y',lp.y+4);t.setAttribute('text-anchor','middle');t.setAttribute('font-size','12');t.setAttribute('font-weight','600');t.setAttribute('fill','#555');t.textContent=axes[i].name;svg.appendChild(t)}
+  let dp=[];for(let i=0;i<N;i++)dp.push(getPoint(i,R*axes[i].score/100));
+  const dpoly=document.createElementNS('http://www.w3.org/2000/svg','polygon');dpoly.setAttribute('fill','rgba(46,134,193,0.12)');dpoly.setAttribute('stroke','#2E86C1');dpoly.setAttribute('stroke-width','2.5');dpoly.setAttribute('stroke-linejoin','round');let sp=[];for(let i=0;i<N;i++)sp.push(`${CX},${CY}`);dpoly.setAttribute('points',sp.join(' '));svg.appendChild(dpoly);setTimeout(()=>{dpoly.setAttribute('points',dp.map(p=>`${p.x},${p.y}`).join(' '));dpoly.style.transition='all 0.8s cubic-bezier(0.4,0,0.2,1)'},100);
+  for(let i=0;i<N;i++){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',dp[i].x);c.setAttribute('cy',dp[i].y);c.setAttribute('r','5');c.setAttribute('fill',axes[i].color);c.setAttribute('stroke','white');c.setAttribute('stroke-width','2');svg.appendChild(c);const st=document.createElementNS('http://www.w3.org/2000/svg','text');st.setAttribute('x',dp[i].x);st.setAttribute('y',dp[i].y-12);st.setAttribute('text-anchor','middle');st.setAttribute('font-size','13');st.setAttribute('font-weight','800');st.setAttribute('fill',axes[i].color);st.textContent=axes[i].score;svg.appendChild(st)}
+  if(showCompare){let cp=[];for(let i=0;i<N;i++)cp.push(getPoint(i,R*compareData[i].score/100));const cpoly=document.createElementNS('http://www.w3.org/2000/svg','polygon');cpoly.setAttribute('points',cp.map(p=>`${p.x},${p.y}`).join(' '));cpoly.setAttribute('fill','rgba(231,76,60,0.08)');cpoly.setAttribute('stroke','#E74C3C');cpoly.setAttribute('stroke-width','2');cpoly.setAttribute('stroke-dasharray','6 3');svg.appendChild(cpoly);for(let i=0;i<N;i++){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',cp[i].x);c.setAttribute('cy',cp[i].y);c.setAttribute('r','4');c.setAttribute('fill','#E74C3C');c.setAttribute('stroke','white');c.setAttribute('stroke-width','1.5');svg.appendChild(c)}}
+}
+function showRadar(m){document.querySelectorAll('.compare-btn').forEach(b=>b.classList.remove('active'));if(m==='single'){document.querySelectorAll('.compare-btn')[0].classList.add('active');drawRadar(false)}else{document.querySelectorAll('.compare-btn')[1].classList.add('active');drawRadar(true)}}
+drawRadar(false);
+</script>
+</body>
+</html>

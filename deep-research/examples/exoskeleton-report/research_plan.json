@@ -1,0 +1,152 @@
+{
+  "topic": "国内外劳工市场外骨骼产品与企业深度调研",
+  "decision_question": "作为 AIPM 想进入工业外骨骼（国外劳工保护场景）赛道，1) 现有玩家格局如何？2) 商业模式（To B/To C）和核心客户是谁？3) 关键产品的技术路线、价格、市场份额？4) 美欧劳工保护外骨骼市场容量有多大？5) 我们应切入哪个细分市场？",
+  "as_of_date": "2026-06-10",
+  "time_window": "2024-01-01 to 2026-06-10; last 30 days for live signals",
+  "geography": ["United States", "United Kingdom", "France", "Germany"],
+  "languages": ["en", "zh"],
+  "include": [
+    "industrial exoskeleton",
+    "labor protection exoskeleton",
+    "worker protection",
+    "warehouse exoskeleton",
+    "manufacturing exoskeleton",
+    "construction exoskeleton",
+    "occupational safety exoskeleton"
+  ],
+  "exclude": [
+    "medical rehabilitation exoskeleton (纯医疗)",
+    "consumer hiking exoskeleton (消费级户外)",
+    "elderly mobility aid (老年助行)",
+    "military combat exoskeleton (军用)"
+  ],
+  "source_mix": {
+    "A": [
+      "SEC EDGAR (Ekso Bionics 10-K)",
+      "公司 IR/财报 (Cyberdyne IFRS)",
+      "OSHA / EU PPE 法规"
+    ],
+    "B": [
+      "TechCrunch",
+      "IEEE Spectrum",
+      "Reuters",
+      "36氪 / 晚点 LatePost"
+    ],
+    "C": [
+      "German Bionic / SuitX / Cyberdyne / Ekso 官网",
+      "SuitX 产品页",
+      "Cyberdyne 产品列表"
+    ],
+    "Social": [
+      "Reddit r/exoskeletons",
+      "TechCrunch CES 2025 报道",
+      "Wired 评测"
+    ]
+  },
+  "subqueries": [
+    {
+      "id": "Q1",
+      "question": "全球外骨骼总市场容量与增速？工业 vs 医疗子市场哪个更快？",
+      "search_query": "exoskeleton market size CAGR 2025 industrial labor protection",
+      "target_sources": ["A", "B"],
+      "evidence_needed": "market size, CAGR, segmentation, source methodology"
+    },
+    {
+      "id": "Q2",
+      "question": "国外劳工保护外骨骼第一梯队玩家是谁？技术路线差异？",
+      "search_query": "German Bionic SuitX Cyberdyne Ekso industrial exoskeleton comparison",
+      "target_sources": ["C", "B"],
+      "evidence_needed": "company list, technology route, product names"
+    },
+    {
+      "id": "Q3",
+      "question": "重点企业产品参数、材料、价格、客户案例、核心竞争力？",
+      "search_query": "SuitX IX BACK VOLTON specifications price customers",
+      "target_sources": ["C"],
+      "evidence_needed": "product specs, materials, price, customer case"
+    },
+    {
+      "id": "Q4",
+      "question": "国外劳工保护外骨骼是 To B 还是 To C？客户是谁（工会/雇主/保险）？",
+      "search_query": "industrial exoskeleton business model To B customer employer union",
+      "target_sources": ["B", "C"],
+      "evidence_needed": "business model, customer type, who pays"
+    },
+    {
+      "id": "Q5",
+      "question": "美欧（英法德）劳工保护外骨骼市场容量多大？5% 渗透率下空间？",
+      "search_query": "Walmart warehouse employees material handlers statistics Europe",
+      "target_sources": ["A", "B"],
+      "evidence_needed": "workforce statistics, market sizing"
+    },
+    {
+      "id": "Q6",
+      "question": "美欧（英法德）法规与合规环境（OSHA/CE/GDPR/DGUV/HSE/INRS）？",
+      "search_query": "OSHA exoskeleton EU CE GDPR DGUV labor protection regulation",
+      "target_sources": ["A", "B"],
+      "evidence_needed": "regulation details, certification"
+    },
+    {
+      "id": "Q7",
+      "question": "国内工业外骨骼厂商现状（傲意智能/迈步/尖叫/铁甲钢拳等）？",
+      "search_query": "国内工业外骨骼 傲意智能 迈步 尖叫智能 铁甲钢拳",
+      "target_sources": ["B", "C"],
+      "evidence_needed": "company list, products, status"
+    },
+    {
+      "id": "Q8",
+      "question": "反向证据：哪些外骨骼公司/产品失败或退出？原因？",
+      "search_query": "exoskeleton company failure discontinued Sarcos Palladyne acquisition",
+      "target_sources": ["B", "C"],
+      "evidence_needed": "negative cases, exit reasons"
+    }
+  ],
+  "entity_resolution": {
+    "companies": [
+      "German Bionic Systems GmbH",
+      "SuitX (US Bionics Inc.)",
+      "CYBERDYNE Inc.",
+      "Ekso Bionics (NASDAQ: EKSO)",
+      "Lockheed Martin",
+      "Atoun (松下子公司)",
+      "Ottobock Paexo",
+      "Sarcos Robotics (→ Palladyne AI)",
+      "傲意智能 OYMotion",
+      "迈步机器人"
+    ],
+    "official_sites": [
+      "https://germanbionic.com/",
+      "https://www.suitx.com/",
+      "https://www.cyberdyne.jp/english/",
+      "https://eksobionics.com/",
+      "https://www.palladyneai.com/"
+    ],
+    "social_handles": [
+      "@GermanBionic",
+      "@Cyberdyne_Japan"
+    ],
+    "communities": [
+      "Reddit r/exoskeletons",
+      "TechCrunch exoskeleton tag"
+    ],
+    "github_repos": []
+  },
+  "must_cover_dimensions": [
+    "市场规模 (≥ 1 条 A/B 源)",
+    "头部玩家 (≥ 6 家带 source)",
+    "技术路线 (≥ 1 条权威解读)",
+    "政策法规 (英法德 + 美国)",
+    "商业模式 (To B/To C + 客户画像)",
+    "市场容量测算 (5% 渗透率)",
+    "竞品对比矩阵 (重点 4-6 家)",
+    "反向证据 (≥ 1 个失败/退出案例)"
+  ],
+  "red_lines": [
+    "不要扩展到日本（除 Cyberdyne 因其国际地位）",
+    "不要扩展到韩国",
+    "不要扩展到军用外骨骼",
+    "不要扩展到消费级户外/老年外骨骼",
+    "不要扩展到纯医疗康复外骨骼"
+  ],
+  "stop_condition": "每个核心判断都有 ≥ 2 条独立 evidence_id，且反幻觉审计通过"
+}
