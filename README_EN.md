@@ -12,7 +12,8 @@ A personal AI Agent skill library. Contains skills I use regularly and have vali
 Ryder-s-Skills-Collection/
 ├── research-intelligence/     Research & Intelligence (9 skills)
 ├── video-motion/              Video & Motion (4 skills)
-├── document-content/          Document & Content (4 skills)
+├── content-creation/          Content Creation (4 skills)
+├── personal-insights/         Personal Insights (1 skill)
 ├── frontend-dev/              Frontend Development (1 skill)
 ├── README.md                  Chinese version
 └── README_EN.md               English version (this file)
@@ -49,7 +50,7 @@ Social media video production, video post-processing, video download/clipping. F
 | **Youtube-clipper-skill** | — | 100KB | YouTube smart clipping + bilingual subtitles + burn-in + summary copy | Anyone making short clips from YouTube |
 | **video-downloader** | — | 2KB | Download videos from YouTube and other platforms | Anyone needing to download videos |
 
-### document-content/ — Document & Content
+### content-creation/ — Content Creation
 
 PPT generation, document illustration, document processing, AI-text de-identification. For content producers.
 
@@ -59,6 +60,13 @@ PPT generation, document illustration, document processing, AI-text de-identific
 | **Document-illustrator-skill** | — | 183KB | Auto-generate document illustrations (AI analyzes structure + generates style-matched images) | Anyone needing illustrations for documents |
 | **document-skills** | — | 2.4MB | Document processing toolkit | Anyone processing various documents |
 | **Humanizer-zh** | — | 26KB | Remove AI traces from Chinese text (exaggerated symbolism/promotional language/rule-of-three...) | Anyone polishing AI-generated text |
+
+### personal-insights/ — Personal Insights
+
+Understand yourself through work traces — where fun meets depth.
+
+| Skill | Version | Size | One-liner | Who it's for |
+|---|---|---|---|---|
 | **work-selfie** | — | 27MB | WorkSelfie workplace personality analysis + Fauvism card (DingTalk data → self-analysis report + PNG card) | Anyone wanting to understand themselves through work traces |
 
 ### frontend-dev/ — Frontend Development

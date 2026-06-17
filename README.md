@@ -12,7 +12,8 @@
 Ryder-s-Skills-Collection/
 ├── research-intelligence/     调研与情报（9 个）
 ├── video-motion/              视频与动画（4 个）
-├── document-content/          文档与内容（4 个）
+├── content-creation/          内容创作（4 个）
+├── personal-insights/         自我洞察（1 个）
 ├── frontend-dev/              前端开发（1 个）
 ├── README.md                  中文版（本文件）
 └── README_EN.md               English version
@@ -49,7 +50,7 @@ Ryder-s-Skills-Collection/
 | **Youtube-clipper-skill** | — | 100KB | YouTube 智能剪辑 + 双语字幕 + 烧录 + 总结文案 | 从 YouTube 做短视频素材的人 |
 | **video-downloader** | — | 2KB | YouTube 等平台视频下载 | 需要下载视频的人 |
 
-### document-content/ — 文档与内容
+### content-creation/ — 内容创作
 
 PPT 生成、文档配图、文档处理、文本去 AI 味。适合内容生产者。
 
@@ -59,6 +60,13 @@ PPT 生成、文档配图、文档处理、文本去 AI 味。适合内容生产
 | **Document-illustrator-skill** | — | 183KB | 文档自动配图（AI 分析结构 + 生成符合风格的配图）| 写文档要配图的人 |
 | **document-skills** | — | 2.4MB | 文档处理工具集 | 处理各类文档的人 |
 | **Humanizer-zh** | — | 26KB | 中文文本去 AI 痕迹（夸大象征/宣传性语言/三段式...）| 用 AI 写完要润色的人 |
+
+### personal-insights/ — 自我洞察
+
+从工作痕迹中认识自己，趣味与深度并存。
+
+| Skill | 版本 | 体积 | 一句话 | 适合谁 |
+|---|---|---|---|---|
 | **work-selfie** | — | 27MB | WorkSelfie 职场人格分析 + 野兽派名片（钉钉数据 → 自我分析报告 + PNG 名片）| 想从工作痕迹里认识自己的人 |
 
 ### frontend-dev/ — 前端开发
