@@ -1,0 +1,4 @@
+interface:
+  display_name: "React Bits Selector"
+  short_description: "Pick and implement React Bits components for frontend tasks."
+  default_prompt: "Use React Bits Selector to choose the best React Bits components for this frontend UI and implement them locally."

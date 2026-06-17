@@ -1,0 +1,553 @@
+# React Bits Component Catalog
+
+Generated from bundled React Bits source. Component count: 134.
+
+Use this file for quick scanning. Use `component-catalog.json` or `scripts/find_components.py` for search.
+
+## TextAnimations (23)
+- **ASCIIText** - Renders text with an animated ASCII background for a retro feel.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: text='David!', asciiFontSize=8, textFontSize=200, textColor='#fdf9f3', planeBaseHeight=8, enableWaves=true
+  - keywords: 3d-webgl, background, heavy, hero, landing, text, textanimations; source: `TextAnimations/ASCIIText`
+- **BlurText** - Text starts blurred then crisply resolves for a soft-focus reveal effect.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: text='', delay=200, className='', animateBy='words', direction='top', threshold=0.1, rootMargin='0px', animationFrom, animationTo, easing=t => t, onAnimationComplete, stepDuration=0.35
+  - keywords: hero, landing, motion, scroll, text, textanimations; source: `TextAnimations/BlurText`
+- **CircularText** - Layouts characters around a circle with optional rotation animation.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: text, spinDuration=20, onHover='speedUp', className=''
+  - keywords: hero, landing, motion, text, textanimations; source: `TextAnimations/CircularText`
+- **CountUp** - Animated number counter supporting formatting and decimals.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: to, from=0, direction='up', delay=0, duration=2, className='', startWhen=true, separator='', onStart, onEnd
+  - keywords: dashboard, hero, motion, textanimations; source: `TextAnimations/CountUp`
+- **CurvedLoop** - Flowing looping text path along a customizable curve with drag interaction.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: marqueeText='', speed=2, className, curveAmount=400, direction='left', interactive=true
+  - keywords: hero, landing, text, textanimations; source: `TextAnimations/CurvedLoop`
+- **DecryptedText** - Hacker-style decryption cycling random glyphs until resolving to real text.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: text, speed=50, maxIterations=10, sequential=false, revealDirection='start', useOriginalCharsOnly=false, characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+', className='', parentClassName='', encryptedClassName='', animateOn='hover', clickMode='once'
+  - keywords: hero, landing, motion, text, textanimations; source: `TextAnimations/DecryptedText`
+- **FallingText** - Characters fall with gravity + bounce creating a playful entrance.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: matter-js@^0.20.0
+  - props: className='', text='', highlightWords=[], highlightClass='highlighted', trigger='auto', backgroundColor='transparent', wireframes=false, gravity=1, mouseConstraintStiffness=0.2, fontSize='1rem'
+  - keywords: 3d-webgl, heavy, hero, landing, text, textanimations; source: `TextAnimations/FallingText`
+- **FuzzyText** - Vibrating fuzzy text with controllable hover intensity.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: children, fontSize='clamp(2rem, 10vw, 10rem)', fontWeight=900, fontFamily='inherit', color='#fff', enableHover=true, baseIntensity=0.18, hoverIntensity=0.5, fuzzRange=30, fps=60, direction='horizontal', transitionDuration=0, +7 more
+  - keywords: cursor, hero, landing, text, textanimations; source: `TextAnimations/FuzzyText`
+- **GlitchText** - RGB split and distortion glitch effect with jitter effects.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: children, speed=1, enableShadows=true, enableOnHover=true, className=''
+  - keywords: hero, landing, text, textanimations; source: `TextAnimations/GlitchText`
+- **GradientText** - Animated gradient sweep across live text with speed and color control.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: children, className='', colors=['#5227FF', '#FF9FFC', '#B497CF'], animationSpeed=8, showBorder=false, direction='horizontal', pauseOnHover=false, yoyo=true
+  - keywords: hero, landing, motion, text, textanimations; source: `TextAnimations/GradientText`
+- **RotatingText** - Cycles through multiple phrases with 3D rotate / flip transitions.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - keywords: 3d-webgl, hero, landing, motion, text, textanimations; source: `TextAnimations/RotatingText`
+- **ScrambledText** - Detects cursor position and applies a distortion effect to text.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: radius=100, duration=1.2, speed=0.5, scrambleChars='.:', className='', style={}, children
+  - keywords: cursor, gsap, hero, landing, text, textanimations; source: `TextAnimations/ScrambledText`
+- **ScrollFloat** - Text gently floats / parallax shifts on scroll.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: children, scrollContainerRef, containerClassName='', textClassName='', animationDuration=1, ease='back.inOut(2)', scrollStart='center bottom+=50%', scrollEnd='bottom bottom-=40%', stagger=0.03
+  - keywords: gsap, hero, landing, mobile, scroll, text, textanimations; source: `TextAnimations/ScrollFloat`
+- **ScrollReveal** - Text gently unblurs and reveals on scroll.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: children, scrollContainerRef, enableBlur=true, baseOpacity=0.1, baseRotation=3, blurStrength=4, containerClassName='', textClassName='', rotationEnd='bottom bottom', wordAnimationEnd='bottom bottom'
+  - keywords: gsap, hero, landing, mobile, scroll, text, textanimations; source: `TextAnimations/ScrollReveal`
+- **ScrollVelocity** - Text marquee animatio - speed and distortion scale with user's scroll velocity.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: scrollContainerRef, texts=[], velocity=100, className='', damping=50, stiffness=400, numCopies=6, velocityMapping={ input: [0, 1000], output: [0, 5] }, parallaxClassName='parallax', scrollerClassName='scroller', parallaxStyle, scrollerStyle
+  - keywords: hero, landing, mobile, motion, scroll, text, textanimations; source: `TextAnimations/ScrollVelocity`
+- **ShinyText** - Metallic sheen sweeps across text producing a reflective highlight.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: text, disabled=false, speed=2, className='', color='#b5b5b5', shineColor='#ffffff', spread=120, yoyo=false, pauseOnHover=false, direction='left', delay=0
+  - keywords: hero, landing, motion, text, textanimations; source: `TextAnimations/ShinyText`
+- **Shuffle** - Animated text reveal where characters shuffle before settling.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @gsap/react@^2.1.2, gsap@^3.13.0
+  - props: text, className='', style={}, shuffleDirection='right', duration=0.35, maxDelay=0, ease='power3.out', threshold=0.1, rootMargin='-100px', tag='p', textAlign='center', onShuffleComplete, +11 more
+  - keywords: gsap, hero, landing, scroll, text, textanimations; source: `TextAnimations/Shuffle`
+- **SplitText** - Splits text into characters / words for staggered entrance animation.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @gsap/react@^2.1.2, gsap@^3.13.0
+  - props: text, className='', delay=50, duration=1.25, ease='power3.out', splitType='chars', from={ opacity: 0, y: 40 }, to={ opacity: 1, y: 0 }, threshold=0.1, rootMargin='-100px', textAlign='center', tag='p', +1 more
+  - keywords: gsap, hero, landing, text, textanimations; source: `TextAnimations/SplitText`
+- **TextCursor** - Make any text element follow your cursor, leaving a trail of copies behind it.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: text='⚛️', spacing=100, followMouseDirection=true, randomFloat=true, exitDuration=0.5, removalInterval=30, maxPoints=5
+  - keywords: cursor, hero, landing, motion, text, textanimations; source: `TextAnimations/TextCursor`
+- **TextPressure** - Characters scale / warp interactively based on pointer pressure zone.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: text='Compressa', fontFamily='Compressa VF', fontUrl='https://res.cloudinary.com/dr6lvwubh/raw/upload/v1529908256/CompressaPRO-GX...., width=true, weight=true, italic=true, alpha=false, flex=true, stroke=false, scale=false, textColor='#FFFFFF', strokeColor='#FF0000', +2 more
+  - keywords: hero, landing, text, textanimations; source: `TextAnimations/TextPressure`
+- **TextType** - Typewriter effect with blinking cursor and adjustable typing cadence.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: text, as='div', typingSpeed=50, initialDelay=0, pauseDuration=2000, deletingSpeed=30, loop=true, className='', showCursor=true, hideCursorWhileTyping=false, cursorCharacter='|', cursorClassName='', +6 more
+  - keywords: cursor, gsap, hero, landing, text, textanimations; source: `TextAnimations/TextType`
+- **TrueFocus** - Applies dynamic blur / clarity based over a series of words in order.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: sentence='True Focus', separator=' ', manualMode=false, blurAmount=5, borderColor='green', glowColor='rgba(0, 255, 0, 0.6)', animationDuration=0.5, pauseBetweenAnimations=1
+  - keywords: hero, motion, text, textanimations; source: `TextAnimations/TrueFocus`
+- **VariableProximity** - Letter styling changes continuously with pointer distance mapping.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - keywords: motion, text, textanimations; source: `TextAnimations/VariableProximity`
+
+## Animations (30)
+- **AnimatedContent** - Wrapper that animates any children on scroll or mount with configurable direction, distance, duration, easing and disappear options.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: children, container, distance=100, direction='vertical', reverse=false, duration=0.8, ease='power3.out', initialOpacity=0, animateOpacity=true, scale=1, threshold=0.1, delay=0, +6 more
+  - keywords: animations, gsap, landing, mobile, scroll; source: `Animations/AnimatedContent`
+- **Antigravity** - 3D antigravity particle field that repels from the cursor with smooth motion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @react-three/fiber@^9.3.0, three@^0.167.1
+  - keywords: 3d-webgl, animations, cursor, heavy; source: `Animations/Antigravity`
+- **BlobCursor** - Organic blob cursor that smoothly follows the pointer with inertia and elastic morphing.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: blobType='circle', fillColor='#5227FF', trailCount=3, sizes=[60, 125, 75], innerSizes=[20, 35, 25], innerColor='rgba(255,255,255,0.8)', opacities=[0.6, 0.6, 0.6], shadowColor='rgba(0,0,0,0.75)', shadowBlur=5, shadowOffsetX=10, shadowOffsetY=10, filterId='blob', +8 more
+  - keywords: animations, cursor, gsap; source: `Animations/BlobCursor`
+- **ClickSpark** - Creates particle spark bursts at click position.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: sparkColor='#fff', sparkSize=10, sparkRadius=15, sparkCount=8, duration=400, easing='ease-out', extraScale=1.0, children
+  - keywords: animations, cursor; source: `Animations/ClickSpark`
+- **Crosshair** - Custom crosshair cursor with tracking, and link hover effects.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: color='white', containerRef=null
+  - keywords: animations, cursor, gsap; source: `Animations/Crosshair`
+- **Cubes** - 3D rotating cube cluster. Supports auto-rotation or hover interaction.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: gridSize=10, cubeSize, maxAngle=45, radius=3, easing='power3.out', duration={ enter: 0.3, leave: 0.6 }, cellGap, borderStyle='1px solid #fff', faceColor='#120F17', shadow=false, autoAnimate=true, rippleOnClick=true, +2 more
+  - keywords: 3d-webgl, animations, cursor, gsap; source: `Animations/Cubes`
+- **ElectricBorder** - Jittery electric energy border with animated arcs, glow and adjustable intensity.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: children, color='#5227FF', speed=1, chaos=0.12, borderRadius=24, className, style
+  - keywords: animations; source: `Animations/ElectricBorder`
+- **FadeContent** - Simple directional fade / slide entrance / exit wrapper with threshold-based activation.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: children, container, blur=false, duration=1000, ease='power2.out', delay=0, threshold=0.1, initialOpacity=0, disappearAfter=0, disappearDuration=0.5, disappearEase='power2.in', onComplete, +3 more
+  - keywords: animations, gsap; source: `Animations/FadeContent`
+- **GhostCursor** - Semi-transparent ghost cursor that smoothly follows the real cursor with a trailing effect.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: className, style, trailLength=50, inertia=0.5, grainIntensity=0.05, bloomStrength=0.1, bloomRadius=1.0, bloomThreshold=0.025, brightness=1, color='#B497CF', mixBlendMode='screen', edgeIntensity=0, +5 more
+  - keywords: 3d-webgl, animations, cursor, heavy; source: `Animations/GhostCursor`
+- **GlareHover** - Adds a realistic moving glare highlight on hover over any element.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: width='500px', height='500px', background='#000', borderRadius='10px', borderColor='#333', children, glareColor='#ffffff', glareOpacity=0.5, glareAngle=-45, glareSize=250, transitionDuration=650, playOnce=false, +2 more
+  - keywords: animations, cursor; source: `Animations/GlareHover`
+- **GradualBlur** - Progressively un-blurs content based on scroll or trigger creating a cinematic reveal.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - keywords: animations, hero, landing, mobile, scroll; source: `Animations/GradualBlur`
+- **ImageTrail** - Cursor-based image trail with several built-in variants.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: items=[], variant=1
+  - keywords: animations, cursor, gsap, media; source: `Animations/ImageTrail`
+- **LaserFlow** - Dynamic laser light that flows onto a surface, customizable effect.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: className, style, wispDensity=1, dpr, mouseSmoothTime=0.0, mouseTiltStrength=0.01, horizontalBeamOffset=0.1, verticalBeamOffset=0.0, flowSpeed=0.35, verticalSizing=2.0, horizontalSizing=0.5, fogIntensity=0.45, +8 more
+  - keywords: 3d-webgl, animations, heavy; source: `Animations/LaserFlow`
+- **LogoLoop** - Continuously looping marquee of brand or tech logos with seamless repeat and hover pause.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - keywords: animations, cursor, landing; source: `Animations/LogoLoop`
+- **MagicRings** - Interactive magic rings effect with customizable parameters.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: color='#fc42ff', colorTwo='#42fcff', speed=1, ringCount=6, attenuation=10, lineThickness=2, baseRadius=0.35, radiusStep=0.1, scaleRate=0.1, opacity=1, blur=0, noiseAmount=0.1, +9 more
+  - keywords: 3d-webgl, animations, heavy; source: `Animations/MagicRings`
+- **Magnet** - Elements magnetically ease toward the cursor then settle back with spring physics.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: children, padding=100, disabled=false, magnetStrength=2, activeTransition='transform 0.3s ease-out', inactiveTransition='transform 0.5s ease-in-out', wrapperClassName='', innerClassName=''
+  - keywords: animations, cursor; source: `Animations/Magnet`
+- **MagnetLines** - Animated field lines bend toward the cursor.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: rows=9, columns=9, containerSize='80vmin', lineColor='#efefef', lineWidth='1vmin', lineHeight='6vmin', baseAngle=-10, className='', style={}
+  - keywords: animations, cursor; source: `Animations/MagnetLines`
+- **MetaBalls** - Liquid metaball blobs that merge and separate with smooth implicit surface animation.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: className='', color='#ffffff', speed=0.3, enableMouseInteraction=true, hoverSmoothness=0.05, animationSize=30, ballCount=15, clumpFactor=1, cursorBallSize=3, cursorBallColor='#ffffff', enableTransparency=true
+  - keywords: 3d-webgl, animations, heavy; source: `Animations/MetaBalls`
+- **MetallicPaint** - Liquid metallic paint shader which can be applied to SVG elements.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: imageSrc, seed=42, scale=4, refraction=0.01, blur=0.015, liquid=0.75, speed=0.3, brightness=2, contrast=0.5, angle=0, fresnel=1, lightColor='#ffffff', +9 more
+  - keywords: 3d-webgl, animations; source: `Animations/MetallicPaint`
+- **Noise** - Animated film grain / noise overlay adding subtle texture and motion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: patternSize=250, patternScaleX=1, patternScaleY=1, patternRefreshInterval=2, patternAlpha=15
+  - keywords: animations, hero, landing, text; source: `Animations/Noise`
+- **OrbitImages** - SVG Path customizable orbiting images effect
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: images=[], altPrefix='Orbiting image', shape='ellipse', customPath, baseWidth=1400, radiusX=700, radiusY=170, radius=300, starPoints=5, starInnerRatio=0.5, rotation=-8, duration=40, +13 more
+  - keywords: 3d-webgl, animations, media, motion; source: `Animations/OrbitImages`
+- **PixelTrail** - Pixelated cursor trail emitting fading squares with retro digital feel.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @react-three/drei@^10.7.4, @react-three/fiber@^9.3.0, three@^0.167.1
+  - props: gridSize=40, trailSize=0.1, maxAge=250, interpolate=5, easingFunction=x => x, canvasProps={}, glProps={
+    antialias: false,
+    powerPreference: 'high-performance',
+    alpha: t..., gooeyFilter, color='#ffffff', className=''
+  - keywords: 3d-webgl, animations, cursor, heavy, media; source: `Animations/PixelTrail`
+- **PixelTransition** - Pixel dissolve transition for content reveal on hover.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: firstContent, secondContent, gridSize=7, pixelColor='currentColor', animationStepDuration=0.3, once=false, aspectRatio='100%', className='', style={}
+  - keywords: animations, cursor, gsap, landing, media, scroll; source: `Animations/PixelTransition`
+- **Ribbons** - Flowing responsive ribbons/cursor trail driven by physics and pointer motion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: colors=['#FC8EAC'], baseSpring=0.03, baseFriction=0.9, baseThickness=30, offsetFactor=0.05, maxAge=500, pointCount=50, speedMultiplier=0.6, enableFade=false, enableShaderEffect=false, effectAmplitude=2, backgroundColor=[0, 0, 0, 0]
+  - keywords: 3d-webgl, animations, cursor, heavy; source: `Animations/Ribbons`
+- **ShapeBlur** - Morphing blurred geometric shape. The effect occurs on hover.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: className='', variation=0, pixelRatioProp=2, shapeSize=1.2, roundness=0.4, borderSize=0.05, circleSize=0.3, circleEdge=0.5
+  - keywords: 3d-webgl, animations, cursor, dashboard, heavy, hero; source: `Animations/ShapeBlur`
+- **SplashCursor** - Liquid splash burst at cursor with curling ripples and waves.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: SIM_RESOLUTION=128, DYE_RESOLUTION=1440, CAPTURE_RESOLUTION=512, DENSITY_DISSIPATION=3.5, VELOCITY_DISSIPATION=2, PRESSURE=0.1, PRESSURE_ITERATIONS=20, CURL=3, SPLAT_RADIUS=0.2, SPLAT_FORCE=6000, SHADING=true, COLOR_UPDATE_SPEED=10, +4 more
+  - keywords: animations, background, cursor; source: `Animations/SplashCursor`
+- **StarBorder** - Animated star / sparkle border orbiting content with twinkle pulses.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: as='button', className='', color='white', speed='6s', thickness=1, children
+  - keywords: 3d-webgl, animations, cursor; source: `Animations/StarBorder`
+- **StickerPeel** - Sticker corner lift + peel interaction using 3D transform and shadow depth.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: imageSrc, rotate=30, peelBackHoverPct=30, peelBackActivePct=40, peelEasing='power3.out', peelHoverEasing='power2.out', width=200, shadowIntensity=0.6, lightingIntensity=0.1, initialPosition='center', peelDirection=0, className=''
+  - keywords: 3d-webgl, animations, gsap; source: `Animations/StickerPeel`
+- **Strands** - Glowing ribbon-like strands that ripple and weave across a transparent canvas.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: colors=['#FF4242', '#7C3AED', '#06B6D4', '#EAB308'], count=3, speed=0.5, amplitude=1, waviness=1, thickness=0.7, glow=2.6, taper=3, spread=1, hueShift=0, intensity=0.6, saturation=1.5, +8 more
+  - keywords: 3d-webgl, animations, heavy; source: `Animations/Strands`
+- **TargetCursor** - A cursor follow animation with 4 corners that lock onto targets.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: targetSelector='.cursor-target', spinDuration=2, hideDefaultCursor=true, hoverDuration=0.2, parallaxOn=true
+  - keywords: animations, cursor, gsap; source: `Animations/TargetCursor`
+
+## Components (36)
+- **AnimatedList** - List items enter with staggered motion variants for polished reveals.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: items=[
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+    '..., onItemSelect, showGradients=true, enableArrowNavigation=true, className='', itemClassName='', displayScrollbar=true, initialSelectedIndex=-1
+  - keywords: components, landing, motion, scroll; source: `Components/AnimatedList`
+- **BorderGlow** - Glowing mesh-gradient border that follows cursor direction and intensifies near edges.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: children, className='', edgeSensitivity=30, glowColor='40 80 80', backgroundColor='#120F17', borderRadius=28, glowRadius=40, glowIntensity=1.0, coneSpread=25, animated=false, colors=['#c084fc', '#f472b6', '#38bdf8'], fillOpacity=0.5
+  - keywords: components, cursor; source: `Components/BorderGlow`
+- **BounceCards** - Cards bounce that bounce in on mount.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: className='', images=[], containerWidth=400, containerHeight=400, animationDelay=0.5, animationStagger=0.06, easeType='elastic.out(1, 0.8)', transformStyles=[
+    'rotate(10deg) translate(-170px)',
+    'rotate(5deg) translate(-85px)',..., enableHover=true
+  - keywords: cards, components, dashboard, gsap, mobile; source: `Components/BounceCards`
+- **BubbleMenu** - Floating circular expanding menu with staggered item reveal.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: logo, onMenuClick, className, style, menuAriaLabel='Toggle menu', menuBg='#fff', menuContentColor='#111', useFixedPosition=false, items, animationEase='back.out(1.5)', animationDuration=0.5, staggerDelay=0.12
+  - keywords: components, gsap, landing, mobile, navigation, scroll; source: `Components/BubbleMenu`
+- **CardNav** - Expandable navigation bar with card panels revealing nested links.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0, react-icons@^5.5.0
+  - props: logo, logoAlt='Logo', items, className='', ease='power3.out', baseColor='#fff', menuColor, buttonBgColor, buttonTextColor
+  - keywords: cards, components, dashboard, gsap, landing, mobile, scroll; source: `Components/CardNav`
+- **CardSwap** - Cards animate position swapping with smooth layout transitions.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: width=500, height=400, cardDistance=60, verticalDistance=70, delay=5000, pauseOnHover=false, onCardClick, skewAmount=6, easing='elastic', children
+  - keywords: cards, components, dashboard, gsap, mobile; source: `Components/CardSwap`
+- **Carousel** - Responsive carousel with touch gestures, looping and transitions.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12, react-icons@^5.5.0
+  - props: items=DEFAULT_ITEMS, baseWidth=300, autoplay=false, autoplayDelay=3000, pauseOnHover=false, loop=false, round=false
+  - keywords: cards, components, media, mobile, motion; source: `Components/Carousel`
+- **ChromaGrid** - A responsive grid of grayscale tiles. Hovering the grid reaveals their colors.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: items, className='', radius=300, columns=3, rows=2, damping=0.45, fadeOut=0.6, ease='power3.out'
+  - keywords: background, components, cursor, dashboard, gsap; source: `Components/ChromaGrid`
+- **CircularGallery** - Circular orbit gallery rotating images.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: items, bend=3, textColor='#ffffff', borderRadius=0.05, font='bold 30px Figtree', fontUrl, scrollSpeed=2, scrollEase=0.05
+  - keywords: 3d-webgl, components, heavy, media; source: `Components/CircularGallery`
+- **Counter** - Flexible animated counter supporting increments + easing.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: value, fontSize=100, padding=0, places=[...value.toString()].map((ch, i, a) => {
+    ch == '.';
+    if (ch === '.') ..., gap=8, borderRadius=4, horizontalPadding=8, textColor='inherit', fontWeight='inherit', containerStyle, counterStyle, digitStyle, +5 more
+  - keywords: components, dashboard, hero, motion; source: `Components/Counter`
+- **DecayCard** - Hover parallax effect that disintegrates the content of a card.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: width=300, height=400, image='https://picsum.photos/300/400?grayscale', baseFrequency=0.015, numOctaves=5, seed=4, maxDisplacement=400, movementBound=50, children
+  - keywords: cards, components, cursor, dashboard, gsap, mobile, scroll; source: `Components/DecayCard`
+- **Dock** - macOS style magnifying dock with proximity scaling of icons.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: items, className='', spring={ mass: 0.1, stiffness: 150, damping: 12 }, magnification=70, distance=200, panelHeight=68, dockHeight=256, baseItemSize=50
+  - keywords: cards, components, dashboard, mobile, motion, navigation; source: `Components/Dock`
+- **DomeGallery** - Immersive 3D dome gallery projecting images on a hemispheric surface.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @use-gesture/react@^10.2.27
+  - props: images=DEFAULT_IMAGES, fit=0.5, fitBasis='auto', minRadius=600, maxRadius=Infinity, padFactor=0.25, overlayBlurColor='#120F17', maxVerticalRotationDeg=DEFAULTS.maxVerticalRotationDeg, dragSensitivity=DEFAULTS.dragSensitivity, enlargeTransitionMs=DEFAULTS.enlargeTransitionMs, segments=DEFAULTS.segments, dragDampening=2, +5 more
+  - keywords: 3d-webgl, components, media; source: `Components/DomeGallery`
+- **ElasticSlider** - Slider handle stretches elastically then snaps with spring physics.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @chakra-ui/react@^3.20.0, motion@^12.23.12, react-icons@^5.5.0
+  - props: defaultValue=50, startingValue=0, maxValue=100, className='', isStepped=false, stepSize=1, leftIcon=<Icon as={RiVolumeDownFill} />, rightIcon=<Icon as={RiVolumeUpFill} />
+  - keywords: components, motion; source: `Components/ElasticSlider`
+- **FlowingMenu** - Liquid flowing active indicator glides between menu items.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: items=[], speed=15, textColor='#fff', bgColor='#120F17', marqueeBgColor='#fff', marqueeTextColor='#120F17', borderColor='#fff'
+  - keywords: components, gsap, mobile, navigation; source: `Components/FlowingMenu`
+- **FluidGlass** - Glassmorphism container with animated liquid distortion refraction.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @react-three/drei@^10.7.4, @react-three/fiber@^9.3.0, maath@^0.10.8, three@^0.167.1
+  - props: mode='lens', lensProps={}, barProps={}, cubeProps={}
+  - keywords: 3d-webgl, components, heavy; source: `Components/FluidGlass`
+- **FlyingPosters** - 3D posters rotate on scroll infinitely.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: items=[], planeWidth=320, planeHeight=320, distortion=3, scrollEase=0.01, cameraFov=45, cameraZ=20, className
+  - keywords: 3d-webgl, components, heavy, landing, mobile, scroll; source: `Components/FlyingPosters`
+- **Folder** - Interactive folder opens to reveal nested content smooth motion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: color='#5227FF', size=1, items=[], className=''
+  - keywords: cards, components, landing, navigation, scroll; source: `Components/Folder`
+- **GlassIcons** - Icon set styled with frosted glass blur.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: items, className
+  - keywords: components, hero; source: `Components/GlassIcons`
+- **GlassSurface** - Advanced Apple-style glass surface with real-time distortion + lighting.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: children, width=200, height=80, borderRadius=20, borderWidth=0.07, brightness=50, opacity=0.93, blur=11, displace=0, backgroundOpacity=0, saturation=1, distortionScale=-180, +8 more
+  - keywords: components; source: `Components/GlassSurface`
+- **GooeyNav** - Navigation indicator morphs with gooey blob transitions between items.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: items, animationTime=600, particleCount=15, particleDistances=[90, 10], particleR=100, timeVariance=300, colors=[1, 2, 3, 1, 2, 3, 1, 4], initialActiveIndex=0
+  - keywords: components; source: `Components/GooeyNav`
+- **InfiniteMenu** - Horizontally looping menu effect that scrolls endlessly with seamless wrap.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gl-matrix@^3.4.3
+  - props: items=[], scale=1.0
+  - keywords: components, landing, mobile, navigation, scroll; source: `Components/InfiniteMenu`
+- **Lanyard** - Swinging 3D lanyard / badge card with realistic inertial motion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: position=[0, 0, 30], gravity=[0, -40, 0], fov=20, transparent=true, frontImage=null, backImage=null, imageFit='cover', lanyardImage=null, lanyardWidth=1
+  - keywords: 3d-webgl, cards, components, dashboard, mobile; source: `Components/Lanyard`
+- **MagicBento** - Interactive bento grid tiles expand + animate with various options.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: textAutoHide=true, enableStars=true, enableSpotlight=true, enableBorderGlow=true, disableAnimations=false, spotlightRadius=DEFAULT_SPOTLIGHT_RADIUS, particleCount=DEFAULT_PARTICLE_COUNT, enableTilt=false, glowColor=DEFAULT_GLOW_COLOR, clickEffect=true, enableMagnetism=true
+  - keywords: background, components, dashboard, gsap; source: `Components/MagicBento`
+- **Masonry** - Responsive masonry layout with animated reflow + gaps optimization.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: items, ease='power3.out', duration=0.6, stagger=0.05, animateFrom='bottom', scaleOnHover=true, hoverScale=0.95, blurToFocus=true, colorShiftOnHover=false
+  - keywords: cards, components, gsap, media; source: `Components/Masonry`
+- **ModelViewer** - Three.js model viewer with orbit controls and lighting presets.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @react-three/drei@^10.7.4, @react-three/fiber@^9.3.0, three@^0.167.1
+  - props: url, width=400, height=400, modelXOffset=0, modelYOffset=0, defaultRotationX=-50, defaultRotationY=20, defaultZoom=0.5, minZoomDistance=0.5, maxZoomDistance=10, enableMouseParallax=true, enableManualRotation=true, +14 more
+  - keywords: 3d-webgl, components, heavy, media; source: `Components/ModelViewer`
+- **PillNav** - Minimal pill nav with sliding active highlight + smooth easing.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0, react-router-dom@^6.30.1
+  - props: logo, logoAlt='Logo', items, activeHref, className='', ease='power3.easeOut', baseColor='#fff', pillColor='#120F17', hoveredPillTextColor='#120F17', pillTextColor, onMobileMenuClick, initialLoadAnimation=true
+  - keywords: components, gsap; source: `Components/PillNav`
+- **PixelCard** - Card content revealed through pixel expansion transition.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: variant='default', gap, speed, colors, noFocus, className='', children
+  - keywords: cards, components, dashboard, landing, media, mobile, scroll; source: `Components/PixelCard`
+- **ProfileCard** - Animated profile card glare with 3D hover effect.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - keywords: 3d-webgl, cards, components, cursor, dashboard, media, mobile; source: `Components/ProfileCard`
+- **ReflectiveCard** - Card with dynamic webcam reflection and glare effects that respond to cursor movement.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: lucide-react@^0.542.0
+  - props: blurStrength=12, color='white', metalness=1, roughness=0.4, overlayColor='rgba(255, 255, 255, 0.1)', displacementStrength=20, noiseScale=1, specularConstant=1.2, grayscale=1, glassDistortion=0, className='', style={}
+  - keywords: cards, components, cursor, dashboard, mobile; source: `Components/ReflectiveCard`
+- **ScrollStack** - Overlapping card stack reveals on scroll with depth layering.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: lenis@^1.3.13
+  - props: children, className='', itemDistance=100, itemScale=0.03, itemStackDistance=30, stackPosition='20%', scaleEndPosition='10%', baseScale=0.85, scaleDuration=0.5, rotationAmount=0, blurAmount=0, useWindowScroll=false, +1 more
+  - keywords: cards, components, dashboard, landing, lenis, mobile, scroll; source: `Components/ScrollStack`
+- **SpotlightCard** - Dynamic spotlight follows cursor casting gradient illumination.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: children, className='', spotlightColor='rgba(255, 255, 255, 0.25)'
+  - keywords: cards, components, cursor, dashboard, mobile; source: `Components/SpotlightCard`
+- **Stack** - Layered stack with swipe animations, autoplay and smooth transitions.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: randomRotation=false, sensitivity=200, cards=[], animationConfig={ stiffness: 260, damping: 20 }, sendToBackOnClick=false, autoplay=false, autoplayDelay=3000, pauseOnHover=false, mobileClickOnly=false, mobileBreakpoint=768
+  - keywords: cards, components, mobile, motion, scroll; source: `Components/Stack`
+- **StaggeredMenu** - Menu with staggered item animations and smooth transitions on open/close.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: position='right', colors=['#B497CF', '#5227FF'], items=[], socialItems=[], displaySocials=true, displayItemNumbering=true, className, logoUrl='/src/assets/logos/reactbits-gh-white.svg', menuButtonColor='#fff', openMenuButtonColor='#fff', accentColor='#5227FF', changeMenuColorOnOpen=true, +4 more
+  - keywords: components, gsap, mobile, navigation; source: `Components/StaggeredMenu`
+- **Stepper** - Animated multi-step progress indicator with active state transitions.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: children, initialStep=1, onStepChange=() => {}, onFinalStepCompleted=() => {}, stepCircleContainerClassName='', stepContainerClassName='', contentClassName='', footerClassName='', backButtonProps={}, nextButtonProps={}, backButtonText='Back', nextButtonText='Continue', +2 more
+  - keywords: components, motion; source: `Components/Stepper`
+- **TiltedCard** - 3D perspective tilt card reacting to pointer.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: motion@^12.23.12
+  - props: imageSrc, altText='Tilted card image', captionText='', containerHeight='300px', containerWidth='100%', imageHeight='300px', imageWidth='300px', scaleOnHover=1.1, rotateAmplitude=14, showMobileWarning=true, showTooltip=true, overlayContent=null, +1 more
+  - keywords: 3d-webgl, cards, components, dashboard, mobile, motion; source: `Components/TiltedCard`
+
+## Backgrounds (45)
+- **Aurora** - Flowing aurora gradient background.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - keywords: 3d-webgl, background, backgrounds, heavy, landing; source: `Backgrounds/Aurora`
+- **Balatro** - The balatro shader, fully customizalbe and interactive.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: spinRotation=-2.0, spinSpeed=7.0, offset=[0.0, 0.0], color1='#DE443B', color2='#006BB4', color3='#162325', contrast=3.5, lighting=0.4, spinAmount=0.25, pixelFilter=745.0, spinEase=1.0, isRotate=false, +1 more
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/Balatro`
+- **Ballpit** - Physics ball pit simulation with bouncing colorful spheres.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0, three@^0.167.1
+  - props: className='', followCursor=true
+  - keywords: 3d-webgl, backgrounds, gsap, heavy; source: `Backgrounds/Ballpit`
+- **Beams** - Crossing animated ribbons with customizable properties.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @react-three/drei@^10.7.4, @react-three/fiber@^9.3.0, three@^0.167.1
+  - props: beamWidth=2, beamHeight=15, beamNumber=12, lightColor='#ffffff', speed=2, noiseIntensity=1.75, scale=0.2, rotation=0
+  - keywords: 3d-webgl, background, backgrounds, heavy; source: `Backgrounds/Beams`
+- **ColorBends** - Vibrant color bends with smooth flowing animation.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: className, style, rotation=90, speed=0.2, colors=[], transparent=true, autoRotate=0, scale=1, frequency=1, warpStrength=1, mouseInfluence=1, parallax=0.5, +4 more
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/ColorBends`
+- **DarkVeil** - Subtle dark background with a smooth animation and postprocessing.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: hueShift=0, noiseIntensity=0, scanlineIntensity=0, speed=0.5, scanlineFrequency=0, warpAmount=0, resolutionScale=1
+  - keywords: 3d-webgl, background, backgrounds, heavy, landing; source: `Backgrounds/DarkVeil`
+- **Dither** - Retro dithered noise shader background.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @react-three/fiber@^9.3.0, @react-three/postprocessing@^3.0.4, postprocessing@^6.36.0, three@^0.167.1
+  - props: waveSpeed=0.05, waveFrequency=3, waveAmplitude=0.3, waveColor=[0.5, 0.5, 0.5], colorNum=4, pixelSize=2, disableAnimation=false, enableMouseInteraction=true, mouseRadius=1
+  - keywords: 3d-webgl, background, backgrounds, heavy, landing; source: `Backgrounds/Dither`
+- **DotField** - Interactive dot grid with cursor bulge, glow, sparkle, and wave effects.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - keywords: background, backgrounds, cursor, dashboard; source: `Backgrounds/DotField`
+- **DotGrid** - Animated dot grid with cursor interactions.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: dotSize=16, gap=32, baseColor='#5227FF', activeColor='#5227FF', proximity=150, speedTrigger=100, shockRadius=250, shockStrength=5, maxSpeed=5000, resistance=750, returnDuration=1.5, className='', +1 more
+  - keywords: background, backgrounds, cursor, dashboard, gsap; source: `Backgrounds/DotGrid`
+- **EvilEye** - Procedural evil eye shader with animated iris, slit pupil, and fiery outer glow.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: eyeColor='#FF6F37', intensity=1.5, pupilSize=0.6, irisWidth=0.25, glowIntensity=0.35, scale=0.8, noiseScale=1.0, pupilFollow=1.0, flameSpeed=1.0, backgroundColor='#000000'
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/EvilEye`
+- **FaultyTerminal** - Terminal CRT scanline squares effect with flicker + noise.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: scale=1, gridMul=[2, 1], digitSize=1.5, timeScale=0.3, pause=false, scanlineIntensity=0.3, glitchAmount=1, flickerAmount=1, noiseAmp=0, chromaticAberration=0, dither=0, curvature=0.2, +8 more
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/FaultyTerminal`
+- **Ferrofluid** - A churning magnetic fluid traced by glowing contour lines, with a cursor magnet.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: className, dpr, paused=false, colors=['#ffffff', '#ffffff', '#ffffff'], speed=0.5, scale=1.6, turbulence=1, fluidity=0.1, rimWidth=0.2, sharpness=2.5, shimmer=1.5, glow=2, +7 more
+  - keywords: 3d-webgl, backgrounds, cursor, heavy; source: `Backgrounds/Ferrofluid`
+- **FloatingLines** - 3D floating lines that react to cursor movement.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: linesGradient, enabledWaves=['top', 'middle', 'bottom'], lineCount=[6], lineDistance=[5], topWavePosition, middleWavePosition, bottomWavePosition={ x: 2.0, y: -0.7, rotate: -1 }, animationSpeed=1, interactive=true, bendRadius=5.0, bendStrength=-0.5, mouseDamping=0.05, +3 more
+  - keywords: 3d-webgl, backgrounds, cursor, heavy; source: `Backgrounds/FloatingLines`
+- **Galaxy** - Parallax realistic starfield with pointer interactions.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: focal=[0.5, 0.5], rotation=[1.0, 0.0], starSpeed=0.5, density=1, hueShift=140, disableAnimation=false, speed=1.0, mouseInteraction=true, glowIntensity=0.3, saturation=0.0, mouseRepulsion=true, repulsionStrength=2, +4 more
+  - keywords: 3d-webgl, backgrounds, heavy, scroll; source: `Backgrounds/Galaxy`
+- **GradientBlinds** - Layered gradient blinds with spotlight and noise distortion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: className, dpr, paused=false, gradientColors, angle=0, noise=0.3, blindCount=16, blindMinWidth=60, mouseDampening=0.15, mirrorGradient=false, spotlightRadius=0.5, spotlightSoftness=1, +4 more
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/GradientBlinds`
+- **Grainient** - Grainy gradient swirls with soft wave distortion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: timeSpeed=0.25, colorBalance=0.0, warpStrength=1.0, warpFrequency=5.0, warpSpeed=2.0, warpAmplitude=50.0, blendAngle=0.0, blendSoftness=0.05, rotationAmount=500.0, noiseScale=2.0, grainAmount=0.1, grainScale=2.0, +11 more
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/Grainient`
+- **GridDistortion** - Warped grid mesh distorts smoothly reacting to cursor.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: grid=15, mouse=0.1, strength=0.15, relaxation=0.9, imageSrc, className=''
+  - keywords: 3d-webgl, background, backgrounds, cursor, dashboard, heavy; source: `Backgrounds/GridDistortion`
+- **GridMotion** - Perspective moving grid lines based on cusror position.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: gsap@^3.13.0
+  - props: items=[], gradientColor='black'
+  - keywords: background, backgrounds, dashboard, gsap; source: `Backgrounds/GridMotion`
+- **GridScan** - Animated grid room 3D scan effect and cool interactions.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: face-api.js@^0.22.2, postprocessing@^6.36.0, three@^0.167.1
+  - props: enableWebcam=false, showPreview=false, modelsPath='https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js@0.22.2/weights', sensitivity=0.55, lineThickness=1, linesColor='#2F293A', scanColor='#FF9FFC', scanOpacity=0.4, gridScale=0.1, lineStyle='solid', lineJitter=0.1, scanDirection='pingpong', +16 more
+  - keywords: 3d-webgl, background, backgrounds, dashboard, heavy; source: `Backgrounds/GridScan`
+- **Hyperspeed** - Animated lines continuously moving to simulate hyperspace travel on click hold.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: postprocessing@^6.36.0, three@^0.167.1
+  - props: effectOptions=DEFAULT_EFFECT_OPTIONS
+  - keywords: 3d-webgl, background, backgrounds, cursor, heavy; source: `Backgrounds/Hyperspeed`
+- **Iridescence** - Slick iridescent shader with shifting waves.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: color=[1, 1, 1], speed=1.0, amplitude=0.1, mouseReact=true
+  - keywords: 3d-webgl, background, backgrounds, heavy; source: `Backgrounds/Iridescence`
+- **LetterGlitch** - Matrix style letter animation.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: glitchColors=['#2b4539', '#61dca3', '#61b3dc'], className='', glitchSpeed=50, centerVignette=false, outerVignette=true, smooth=true, characters='ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789'
+  - keywords: backgrounds, text; source: `Backgrounds/LetterGlitch`
+- **LightPillar** - Vertical pillar of light with glow effects.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: topColor='#5227FF', bottomColor='#FF9FFC', intensity=1.0, rotationSpeed=0.3, interactive=false, className='', glowAmount=0.005, pillarWidth=3.0, pillarHeight=0.4, noiseIntensity=0.5, mixBlendMode='screen', pillarRotation=0, +1 more
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/LightPillar`
+- **LightRays** - Volumetric light rays/beams with customizable direction.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: raysOrigin='top-center', raysColor=DEFAULT_COLOR, raysSpeed=1, lightSpread=1, rayLength=2, pulsating=false, fadeDistance=1.0, saturation=1.0, followMouse=true, mouseInfluence=0.1, noiseAmount=0.0, distortion=0.0, +1 more
+  - keywords: 3d-webgl, background, backgrounds, dashboard, heavy; source: `Backgrounds/LightRays`
+- **Lightfall** - Colorful light streaks raining down a glowing tunnel with a cursor light.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: className, dpr, paused=false, colors=['#A6C8FF', '#5227FF', '#FF9FFC'], backgroundColor='#0A29FF', speed=0.5, streakCount=2, streakWidth=1, streakLength=1, glow=1, density=0.6, twinkle=1, +8 more
+  - keywords: 3d-webgl, backgrounds, cursor, heavy; source: `Backgrounds/Lightfall`
+- **Lightning** - Procedural lightning bolts with branching and glow flicker.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: hue=230, xOffset=0, speed=1, intensity=1, size=1
+  - keywords: backgrounds; source: `Backgrounds/Lightning`
+- **LineWaves** - Animated line wave pattern with colorful warped distortion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: speed=0.3, innerLineCount=32.0, outerLineCount=36.0, warpIntensity=1.0, rotation=-45, edgeFadeWidth=0.0, colorCycleSpeed=1.0, brightness=0.2, color1='#ffffff', color2='#ffffff', color3='#ffffff', enableMouseInteraction=true, +1 more
+  - keywords: 3d-webgl, background, backgrounds, heavy; source: `Backgrounds/LineWaves`
+- **LiquidChrome** - Liquid metallic chrome shader with flowing reflective surface.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: baseColor=[0.1, 0.1, 0.1], speed=0.2, amplitude=0.3, frequencyX=3, frequencyY=3, interactive=true
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/LiquidChrome`
+- **LiquidEther** - Interactive liquid shader with flowing distortion and customizable colors.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: mouseForce=20, cursorSize=100, isViscous=false, viscous=30, iterationsViscous=32, iterationsPoisson=32, dt=0.014, BFECC=true, resolution=0.5, isBounce=false, colors=['#5227FF', '#FF9FFC', '#B497CF'], style={}, +7 more
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/LiquidEther`
+- **Orb** - Floating energy orb with customizable hover effect.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: hue=0, hoverIntensity=0.2, rotateOnHover=true, forceHoverState=false, backgroundColor='#000000'
+  - keywords: 3d-webgl, backgrounds, cursor, heavy; source: `Backgrounds/Orb`
+- **Particles** - Configurable particle system.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: particleCount=200, particleSpread=10, speed=0.1, particleColors, moveParticlesOnHover=false, particleHoverFactor=1, alphaParticles=false, particleBaseSize=100, sizeRandomness=1, cameraDistance=20, disableRotation=false, pixelRatio=1, +1 more
+  - keywords: 3d-webgl, background, backgrounds, heavy; source: `Backgrounds/Particles`
+- **PixelBlast** - Exploding pixel particle bursts with optional liquid postprocessing.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: postprocessing@^6.36.0, three@^0.167.1
+  - props: variant='square', pixelSize=3, color='#B497CF', className, style, antialias=true, patternScale=2, patternDensity=1, liquid=false, liquidStrength=0.1, liquidRadius=1, pixelSizeJitter=0, +10 more
+  - keywords: 3d-webgl, backgrounds, heavy, media; source: `Backgrounds/PixelBlast`
+- **PixelSnow** - Falling pixelated snow effect with customizable density and speed.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: three@^0.167.1
+  - props: color='#ffffff', flakeSize=0.01, minFlakeSize=1.25, pixelResolution=200, speed=1.25, depthFade=8, farPlane=20, brightness=1, gamma=0.4545, density=0.3, variant='square', direction=125, +2 more
+  - keywords: 3d-webgl, backgrounds, heavy, media; source: `Backgrounds/PixelSnow`
+- **Plasma** - Organic plasma gradients swirl + morph with smooth turbulence.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: color='#ffffff', speed=1, direction='forward', scale=1, opacity=1, mouseInteractive=true
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/Plasma`
+- **PlasmaWave** - Raymarched plasma waves with dual-wave interference and OGL.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - keywords: 3d-webgl, background, backgrounds, heavy; source: `Backgrounds/PlasmaWave`
+- **Prism** - Rotating prism with configurable intensity, size, and colors.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: height=3.5, baseWidth=5.5, animationType='rotate', glow=1, offset={ x: 0, y: 0 }, noise=0.5, transparent=true, scale=3.6, hueShift=0, colorFrequency=1, hoverStrength=2, inertia=0.05, +3 more
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/Prism`
+- **PrismaticBurst** - Burst of light rays with controllable color, distortion, amount.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: intensity=2, speed=0.5, animationType='rotate3d', colors, distort=0, paused=false, offset={ x: 0, y: 0 }, hoverDampness=0, rayCount, mixBlendMode='lighten'
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/PrismaticBurst`
+- **Radar** - Radar sweep effect with concentric rings, radial spokes, and a rotating beam.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: speed=1.0, scale=0.5, ringCount=10.0, spokeCount=10.0, ringThickness=0.05, spokeThickness=0.01, sweepSpeed=1.0, sweepWidth=2.0, sweepLobes=1.0, color='#9f29ff', backgroundColor='#000000', falloff=2.0, +3 more
+  - keywords: 3d-webgl, background, backgrounds, heavy; source: `Backgrounds/Radar`
+- **RippleGrid** - A grid that continuously animates with a ripple effect.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: enableRainbow=false, gridColor='#ffffff', rippleIntensity=0.05, gridSize=10.0, gridThickness=15.0, fadeDistance=1.5, vignetteStrength=2.0, glowIntensity=0.1, opacity=1.0, gridRotation=0, mouseInteraction=true, mouseInteractionRadius=1
+  - keywords: 3d-webgl, background, backgrounds, dashboard, heavy; source: `Backgrounds/RippleGrid`
+- **ShapeGrid** - Animated grid with shape variants (square, hexagon, circle, triangle) + direction customization.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: direction='right', speed=1, borderColor='#999', squareSize=40, hoverFillColor='#222', shape='square', hoverTrailAmount=0, className=''
+  - keywords: background, backgrounds, dashboard; source: `Backgrounds/ShapeGrid`
+- **SideRays** - Animated light rays emanating from the side with customizable colors and speed.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: speed=2.5, rayColor1='#EAB308', rayColor2='#96c8ff', intensity=2, spread=2, origin='top-right', tilt=0, saturation=1.5, blend=0.75, falloff=1.6, opacity=1.0, className=''
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/SideRays`
+- **Silk** - Smooth waves background with soft lighting.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: @react-three/fiber@^9.3.0, three@^0.167.1
+  - props: speed=5, scale=1, color='#7B7481', noiseIntensity=1.5, rotation=0
+  - keywords: 3d-webgl, background, backgrounds, heavy, landing; source: `Backgrounds/Silk`
+- **SoftAurora** - Soft aurora borealis shader with 3D Perlin noise and cosine gradient palettes.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: speed=0.6, scale=1.5, brightness=1.0, color1='#f7f7f7', color2='#e100ff', noiseFrequency=2.5, noiseAmplitude=1.0, bandHeight=0.5, bandSpread=1.0, octaveDecay=0.1, layerOffset=0, colorSpeed=1.0, +2 more
+  - keywords: 3d-webgl, background, backgrounds, heavy; source: `Backgrounds/SoftAurora`
+- **Threads** - Animated pattern of lines forming a fabric-like motion.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: ogl@^1.0.11
+  - props: color=[1, 1, 1], amplitude=1, distance=0, enableMouseInteraction=false
+  - keywords: 3d-webgl, backgrounds, heavy; source: `Backgrounds/Threads`
+- **Waves** - Layered lines that form smooth wave patterns with animation.
+  - variants: JS-CSS, JS-TW, TS-CSS, TS-TW; deps: none
+  - props: lineColor='black', backgroundColor='transparent', waveSpeedX=0.0125, waveSpeedY=0.005, waveAmpX=32, waveAmpY=16, xGap=10, yGap=32, friction=0.925, tension=0.005, maxCursorMove=100, style={}, +1 more
+  - keywords: background, backgrounds; source: `Backgrounds/Waves`
