@@ -59,6 +59,7 @@ PPT 生成、文档配图、文档处理、文本去 AI 味。适合内容生产
 | **Document-illustrator-skill** | — | 183KB | 文档自动配图（AI 分析结构 + 生成符合风格的配图）| 写文档要配图的人 |
 | **document-skills** | — | 2.4MB | 文档处理工具集 | 处理各类文档的人 |
 | **Humanizer-zh** | — | 26KB | 中文文本去 AI 痕迹（夸大象征/宣传性语言/三段式...）| 用 AI 写完要润色的人 |
+| **work-selfie** | — | 27MB | WorkSelfie 职场人格分析 + 野兽派名片（钉钉数据 → 自我分析报告 + PNG 名片）| 想从工作痕迹里认识自己的人 |
 
 ### frontend-dev/ — 前端开发
 
@@ -84,6 +85,7 @@ React 组件选择与集成。适合前端开发者。
 | 做 PPT | `NanoBanana-PPT-Skills` |
 | 给文档配图 | `Document-illustrator-skill` |
 | 去掉文本的 AI 味 | `Humanizer-zh` |
+| 从工作痕迹认识自己 | `work-selfie` |
 | React 项目加动画组件 | `react-bits-selector` |
 
 ---

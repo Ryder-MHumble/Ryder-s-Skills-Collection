@@ -59,6 +59,7 @@ PPT generation, document illustration, document processing, AI-text de-identific
 | **Document-illustrator-skill** | — | 183KB | Auto-generate document illustrations (AI analyzes structure + generates style-matched images) | Anyone needing illustrations for documents |
 | **document-skills** | — | 2.4MB | Document processing toolkit | Anyone processing various documents |
 | **Humanizer-zh** | — | 26KB | Remove AI traces from Chinese text (exaggerated symbolism/promotional language/rule-of-three...) | Anyone polishing AI-generated text |
+| **work-selfie** | — | 27MB | WorkSelfie workplace personality analysis + Fauvism card (DingTalk data → self-analysis report + PNG card) | Anyone wanting to understand themselves through work traces |
 
 ### frontend-dev/ — Frontend Development
 
@@ -84,6 +85,7 @@ React component selection and integration. For frontend developers.
 | Make PPTs | `NanoBanana-PPT-Skills` |
 | Add illustrations to documents | `Document-illustrator-skill` |
 | Remove AI tone from text | `Humanizer-zh` |
+| Understand yourself through work traces | `work-selfie` |
 | Add animated components to React | `react-bits-selector` |
 
 ---
