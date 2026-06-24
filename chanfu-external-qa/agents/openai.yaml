@@ -1,0 +1,4 @@
+interface:
+  display_name: "产孵对外问答"
+  short_description: "External incubation Q&A with safe handoff"
+  default_prompt: "Use $chanfu-external-qa to answer an external researcher question with linked sources, no internal project data, and 成果转化办公室 handoff when unanswered."
