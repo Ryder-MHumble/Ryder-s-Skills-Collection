@@ -1,4 +1,4 @@
 interface:
   display_name: "产孵对内问答"
-  short_description: "Internal incubation progress risk decision Q&A"
-  default_prompt: "Use $chanfu-internal-qa to brief leadership on project progress, risks, decisions, and linked sources."
+  short_description: "Read-only internal incubation progress Q&A"
+  default_prompt: "Use $chanfu-internal-qa to brief internal teams on project progress, risks, decisions, and linked sources without modifying documents."
