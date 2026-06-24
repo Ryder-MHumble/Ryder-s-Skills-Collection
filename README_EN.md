@@ -10,7 +10,8 @@ A personal AI Agent skill library. Contains skills I use regularly and have vali
 
 ```
 Ryder-s-Skills-Collection/
-├── research-intelligence/     Research & Intelligence (9 skills)
+├── research-intelligence/     Research & Intelligence (8 skills)
+├── ZGCI/                      ZGCI Internal Skills (3 skills)
 ├── video-motion/              Video & Motion (4 skills)
 ├── content-creation/          Content Creation (5 skills)
 ├── personal-insights/         Personal Insights (1 skill)
@@ -35,9 +36,18 @@ Deep research, open-source project analysis, AI industry intelligence, KOL conte
 | **aihot-ai-models** | — | 4KB | AI HOT model release/update intelligence (OpenAI/Anthropic/Google...) | Anyone tracking model releases |
 | **aihot-ai-papers** | — | 4KB | AI HOT paper research intelligence (arXiv/breakthroughs/architectures...) | Anyone tracking academic progress |
 | **aihot-ai-products** | — | 4KB | AI HOT product launch/update intelligence (SaaS/tools/features...) | Anyone tracking product updates |
-| **intelligence-engine-api** | — | 91KB | Intelligence engine backend API query/export/rank/visualize | Developers building on the intelligence engine |
 | **twitter-ai-kol-fetcher** | — | 38KB | Fetch Twitter AI KOL activity + identify trending topics + generate briefings | Anyone producing AI industry briefings |
 | **kol-interview-to-wiki** | 3.0 | 30KB | YouTube KOL interview → structured deep analysis → Obsidian wiki | Anyone mining KOL interviews for insights |
+
+### ZGCI/ — ZGCI Internal Skills
+
+Internal work-related skills for Zhongguancun AI Institute, including Chanfu Q&A and Intelligence Engine API workflows.
+
+| Skill | Version | Size | One-liner | Who it's for |
+|---|---|---|---|---|
+| **chanfu-external-qa** | — | 16KB | External-safe Q&A for the Technology Transfer Office / Chanfu | Answering researchers, startup teams, partners, and public-facing users |
+| **chanfu-internal-qa** | — | 12KB | Internal leadership Q&A for project progress, risks, and decisions | Internal management and leadership decision support |
+| **intelligence-engine-api** | — | 104KB | Intelligence engine backend API query/export/rank/visualize | Developers building on the intelligence engine |
 
 ### video-motion/ — Video & Motion
 
@@ -87,6 +97,8 @@ React component selection and integration. For frontend developers.
 | Produce a research report | `deep-research` |
 | Analyze a GitHub open-source project | `github-deep-analysis` |
 | Track daily AI industry updates | `aihot` (general) / `aihot-ai-models` (models) / `aihot-ai-papers` (papers) / `aihot-ai-products` (products) |
+| Query/export Intelligence Engine data | `intelligence-engine-api` |
+| Answer Chanfu / technology transfer questions | `chanfu-external-qa` (external) / `chanfu-internal-qa` (internal) |
 | Mine KOL interview content | `kol-interview-to-wiki` (YouTube) + `twitter-ai-kol-fetcher` (Twitter) |
 | Make Douyin/Bilibili explainer videos | `vibe-remotion-animator` |
 | Add effects to interview videos | `Video-Wrapper-Skills` |

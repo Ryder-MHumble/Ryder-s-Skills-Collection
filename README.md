@@ -10,7 +10,8 @@
 
 ```
 Ryder-s-Skills-Collection/
-├── research-intelligence/     调研与情报（9 个）
+├── research-intelligence/     调研与情报（8 个）
+├── ZGCI/                      研究院内部技能（3 个）
 ├── video-motion/              视频与动画（4 个）
 ├── content-creation/          内容创作（5 个）
 ├── personal-insights/         自我洞察（1 个）
@@ -35,9 +36,18 @@ Ryder-s-Skills-Collection/
 | **aihot-ai-models** | — | 4KB | AI HOT 模型发布/更新情报（OpenAI/Anthropic/Google...）| 跟模型发布的人 |
 | **aihot-ai-papers** | — | 4KB | AI HOT 论文研究情报（arXiv/突破/架构...）| 跟学术进展的人 |
 | **aihot-ai-products** | — | 4KB | AI HOT 产品发布/更新情报（SaaS/工具/功能...）| 跟产品动态的人 |
-| **intelligence-engine-api** | — | 91KB | 情报引擎后端 API 查询/导出/排名/可视化 | 用情报引擎做二次开发的人 |
 | **twitter-ai-kol-fetcher** | — | 38KB | 抓取 Twitter AI KOL 动态 + 识别热门话题 + 生成内参 | 做 AI 行业内参的人 |
 | **kol-interview-to-wiki** | 3.0 | 30KB | YouTube KOL 访谈 → 结构化深度分析 → Obsidian wiki | 从 KOL 访谈里挖情报的人 |
+
+### ZGCI/ — 研究院内部技能
+
+中关村人工智能研究院内部工作相关技能。包含成果转化/产孵问答，以及情报引擎 API。
+
+| Skill | 版本 | 体积 | 一句话 | 适合谁 |
+|---|---|---|---|---|
+| **chanfu-external-qa** | — | 16KB | 成果转化办公室对外创业咨询问答（外部安全口径）| 面向研究员、创业团队、合作方的问题答复 |
+| **chanfu-internal-qa** | — | 12KB | 成果转化办公室对内领导问答（项目进展/风险/决策支持）| 内部管理和领导决策支持 |
+| **intelligence-engine-api** | — | 104KB | 情报引擎后端 API 查询/导出/排名/可视化 | 用情报引擎做二次开发的人 |
 
 ### video-motion/ — 视频与动画
 
@@ -87,6 +97,8 @@ React 组件选择与集成。适合前端开发者。
 | 出一份调研报告 | `deep-research` |
 | 分析一个 GitHub 开源项目 | `github-deep-analysis` |
 | 每天 AI 行业动态 | `aihot`（综合）/ `aihot-ai-models`（模型）/ `aihot-ai-papers`（论文）/ `aihot-ai-products`（产品）|
+| 查询/导出情报引擎数据 | `intelligence-engine-api` |
+| 做成果转化办公室问答 | `chanfu-external-qa`（对外）/ `chanfu-internal-qa`（对内）|
 | 从 KOL 访谈里挖内容 | `kol-interview-to-wiki`（YouTube）+ `twitter-ai-kol-fetcher`（Twitter）|
 | 做抖音/B站讲解视频 | `vibe-remotion-animator` |
 | 给访谈视频加特效 | `Video-Wrapper-Skills` |
