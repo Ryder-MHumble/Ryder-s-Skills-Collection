@@ -1,0 +1,479 @@
+/* ============================================================
+ * KOL 卡片样式表 v1.0
+ * content-studio · brutalist 杂志风
+ * 设计语言：标题居中（视觉重心）+ 边缘装饰不对称（节奏感）
+ * 画布：1240 × 1654（3:4 竖图）
+ * ============================================================ */
+
+/* ---------- 1. 设计变量（替换主题只改这里） ---------- */
+:root {
+  /* 配色：保持和 xhs-brutalist-cards 一致 */
+  --paper: #f1e2cc;        /* 米黄信纸底 */
+  --paper-2: #f6e8d5;       /* 米黄（变体，备用） */
+  --soft: #fff9ed;         /* 米白卡片 */
+  --ink: #080808;          /* 黑色 */
+  --red: #f0442e;          /* 橙红（主要投影色） */
+  --yellow: #ffd72e;        /* 黄（仅 title-3 强调） */
+  --muted: #6d6255;         /* 中性灰 */
+
+  /* 画布尺寸 */
+  --card-w: 1240px;
+  --card-h: 1654px;
+  --border: 16px;          /* 厚黑边框 */
+
+  /* 硬投影（brutalist 美学核心） */
+  --shadow-title: 14px 14px 0 var(--red);     /* 标题级 */
+  --shadow-sub: 12px 12px 0 var(--red);       /* 副标级 */
+  --shadow-id: 10px 10px 0 var(--red);        /* ID 卡级 */
+  --shadow-stamp: 12px 12px 0 var(--ink);     /* stamp 投影 */
+  --shadow-yellow: 14px 14px 0 var(--yellow); /* title-3 强调投影 */
+
+  /* 字体链 */
+  --font-cn: "STHeiti", "Heiti SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-ui: "Arial Black", Impact, "DIN Condensed", sans-serif;
+  --font-mono: "Courier New", monospace;
+
+  /* 边距常量 */
+  --edge: 46px;            /* 内容区到画布边的距离 */
+  --edge-r: 54px;          /* 右侧微调（容纳 16px 边框） */
+}
+
+/* ---------- 2. Reset ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #16120f;     /* 深色背景，凸显米黄卡片 */
+  color: var(--ink);
+  font-family: var(--font-cn);
+}
+
+.preview-page {
+  display: grid;
+  gap: 40px;
+  justify-items: center;
+  padding: 40px;
+}
+
+/* ---------- 3. 卡片主体（信纸底 + 厚黑边 + 斜切角） ---------- */
+.kol-card {
+  position: relative;
+  width: var(--card-w);
+  height: var(--card-h);
+  overflow: hidden;
+  background-color: var(--paper);
+  border: var(--border) solid var(--ink);
+  isolation: isolate;
+}
+
+/* 信纸底纹理：横线 + 噪点（CSS 等价 PIL 的 draw_paper_texture） */
+.kol-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 20px, rgba(8,8,8,.13) 20px 21px, transparent 21px 22px),
+    radial-gradient(circle at 11px 7px, rgba(8,8,8,.22) 0 1px, transparent 1.4px) 0 0 / 31px 29px,
+    radial-gradient(circle at 17px 13px, rgba(255,255,255,.22) 0 1px, transparent 1.5px) 0 0 / 47px 43px,
+    var(--paper);
+}
+
+/* 右下黑色斜切角 */
+.kol-card::after {
+  content: "";
+  position: absolute;
+  right: -16px;
+  bottom: -16px;
+  width: 220px;
+  height: 220px;
+  background: var(--ink);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* 上下两条黑色装饰横线 */
+.frame-line {
+  position: absolute;
+  left: var(--edge);
+  right: var(--edge);
+  height: 7px;
+  background: var(--ink);
+  z-index: 2;
+}
+.frame-line.top { top: 16px; }
+.frame-line.bottom { bottom: 64px; }
+
+/* ============================================================
+ * TOP ROW：左 ID 卡 + 右 KOL 角标
+ * ============================================================ */
+
+/* ---------- 4. 顶部左侧 ID 卡 ---------- */
+.identity {
+  position: absolute;
+  left: var(--edge);
+  top: 46px;
+  width: 690px;
+  height: 104px;
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 26px;
+  align-items: center;
+  padding: 10px 24px;
+  background: var(--soft);
+  border: 6px solid var(--ink);
+  box-shadow: var(--shadow-id);
+  z-index: 3;
+}
+
+.logo-slot {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  background: var(--red);
+  border: 6px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  font: 900 14px/1 var(--font-ui);
+  letter-spacing: -.04em;
+  text-align: center;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.identity-name {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- 5. 顶部右侧 KOL 编号角标 ---------- */
+.kol-badge {
+  position: absolute;
+  right: var(--edge-r);
+  top: 34px;
+  width: 320px;
+  height: 130px;
+  display: grid;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-items: center;
+  background: var(--ink);
+  color: var(--soft);
+  box-shadow: 10px 10px 0 var(--red);
+  z-index: 3;
+}
+
+.kol-number {
+  font: 900 86px/.85 var(--font-ui);
+  color: var(--red);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.kol-label {
+  margin-top: 4px;
+  font: 900 22px/1 var(--font-ui);
+  color: var(--soft);
+  letter-spacing: .12em;
+}
+
+/* ---------- 6. 红线分隔 ---------- */
+.red-divider {
+  position: absolute;
+  left: var(--edge);
+  right: var(--edge);
+  top: 200px;
+  height: 6px;
+  background: var(--red);
+  z-index: 2;
+}
+.red-divider::before,
+.red-divider::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 6px;
+  height: 30px;
+  background: var(--ink);
+}
+.red-divider::before { left: 0; }
+.red-divider::after  { right: 0; }
+
+/* ============================================================
+ * HEAD ROW：左 头像 + 右 装饰方块
+ * ============================================================ */
+
+/* ---------- 7. 头部左侧 头像 ---------- */
+.head-avatar {
+  position: absolute;
+  left: 80px;
+  top: 260px;
+  width: 240px;
+  height: 280px;
+  background: var(--paper-2);
+  border: 8px solid var(--ink);
+  box-shadow: var(--shadow-title);
+  z-index: 3;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ---------- 8. 头部右侧 装饰方块 ---------- */
+.head-deco {
+  position: absolute;
+  right: var(--edge-r);
+  top: 260px;
+  width: 360px;
+  height: 280px;
+  background: var(--yellow);
+  border: 6px solid var(--ink);
+  box-shadow: var(--shadow-title);
+  z-index: 3;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 24px 28px;
+}
+
+.deco-tag {
+  display: inline-block;
+  align-self: start;
+  padding: 6px 14px;
+  background: var(--ink);
+  color: var(--soft);
+  font: 900 22px/1 var(--font-ui);
+  letter-spacing: .12em;
+}
+
+.deco-line {
+  align-self: center;
+  width: 100%;
+  height: 6px;
+  background: var(--ink);
+  margin: 24px 0;
+}
+
+.deco-num {
+  align-self: end;
+  font: 900 64px/.85 var(--font-ui);
+  color: var(--ink);
+  letter-spacing: -.04em;
+}
+
+/* ============================================================
+ * TITLE BLOCK：3 行主标题（核心：全部居中）
+ * ============================================================ */
+
+/* ---------- 9. 主标题 box 通用 ---------- */
+.title-line {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 8px solid var(--ink);
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: .92;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 3;
+}
+
+/* 第 1 行：米白底 + 红投影 */
+.title-line-1 {
+  top: 600px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 980px;
+  height: 130px;
+  background: var(--soft);
+  color: var(--ink);
+  box-shadow: var(--shadow-title);
+  font-size: 78px;
+}
+
+/* 第 2 行：黑底 + 白字 + 红投影 */
+.title-line-2 {
+  top: 760px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 880px;
+  height: 130px;
+  background: var(--ink);
+  color: var(--soft);
+  box-shadow: var(--shadow-title);
+  font-size: 78px;
+}
+
+/* 第 3 行：红底 + 黑字 + 黄投影（最重） */
+.title-line-3 {
+  top: 920px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1080px;
+  height: 150px;
+  background: var(--red);
+  color: var(--ink);
+  box-shadow: var(--shadow-yellow);
+  font-size: 92px;
+}
+
+/* ============================================================
+ * SUBTITLE BOX：副标题（居中）
+ * ============================================================ */
+
+.subtitle-box {
+  position: absolute;
+  top: 1100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 880px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  background: var(--soft);
+  border: 7px solid var(--ink);
+  box-shadow: var(--shadow-sub);
+  font-size: 42px;
+  font-weight: 800;
+  text-align: center;
+  z-index: 3;
+}
+
+/* ============================================================
+ * BOTTOM ROW：3 元素不对称分布
+ *   左：01 stamp · 中：条形码 · 右：RYDER 卡
+ * ============================================================ */
+
+/* ---------- 10. 底部左侧 01 stamp ---------- */
+.stamp-card {
+  position: absolute;
+  left: var(--edge);
+  bottom: 184px;
+  width: 350px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  background: var(--red);
+  border: 7px solid var(--ink);
+  box-shadow: var(--shadow-stamp);
+  z-index: 3;
+}
+
+.stamp-num {
+  display: grid;
+  place-items: center;
+  color: var(--soft);
+  font: 900 130px/.85 var(--font-ui);
+}
+
+.stamp-meta {
+  padding: 30px 18px;
+  border-left: 6px solid var(--ink);
+  font: 900 30px/1.5 var(--font-ui);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ---------- 11. 底部中间 条形码 ---------- */
+.barcode-block {
+  position: absolute;
+  bottom: 220px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  z-index: 3;
+}
+
+.barcode {
+  width: 240px;
+  height: 110px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0 5px,
+    transparent 5px 12px,
+    var(--ink) 12px 18px,
+    transparent 18px 26px,
+    var(--ink) 26px 32px,
+    transparent 32px 38px
+  );
+}
+
+.barcode-label {
+  font: 900 18px/1 var(--font-ui);
+  letter-spacing: .12em;
+  color: var(--ink);
+}
+
+/* ---------- 12. 底部右侧 RYDER 卡 ---------- */
+.ryder-card {
+  position: absolute;
+  right: var(--edge-r);
+  bottom: 184px;
+  width: 460px;
+  height: 240px;
+  padding: 24px 28px;
+  background: var(--soft);
+  border: 7px solid var(--ink);
+  box-shadow: var(--shadow-title);
+  z-index: 3;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 14px;
+}
+
+.ryder-chip {
+  display: inline-grid;
+  place-items: center;
+  align-self: start;
+  justify-self: start;
+  padding: 8px 16px;
+  background: var(--ink);
+  color: var(--soft);
+  font: 900 22px/1 var(--font-ui);
+  letter-spacing: .12em;
+}
+
+.ryder-title {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.ryder-copy {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ============================================================
+ * FOOTER NOTE
+ * ============================================================ */
+
+.footer-note {
+  position: absolute;
+  left: var(--edge);
+  bottom: 28px;
+  font: 900 22px/1 var(--font-ui);
+  letter-spacing: .04em;
+  color: var(--ink);
+  z-index: 3;
+}

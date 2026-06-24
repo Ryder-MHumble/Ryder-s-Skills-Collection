@@ -1,0 +1,18 @@
+{
+  "series_name": "一分钟打假一个 GitHub 热门项目",
+  "cards": [
+    {
+      "type": "cover",
+      "slug": "cover",
+      "cover_style": "series_github_project",
+      "main_title": "一分钟打假一个 GitHub 热门项目",
+      "subtitle": "号称省70%Token，实测大失所望",
+      "project": "Headroom",
+      "project_screenshot": "./assets/headroom-github-project-page.png",
+      "screenshot_label": "GITHUB PROJECT PAGE",
+      "screenshot_chip": "headroomlabs-ai/headroom",
+      "footer_left": "ISSUE 001",
+      "footer_right": "GITHUB FACTCHECK"
+    }
+  ]
+}

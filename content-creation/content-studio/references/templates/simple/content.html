@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Content — 极简内容卡</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card" aria-label="简易模式内容卡">
+    <!-- 顶部页眉：ID 标签 + 发布日期 -->
+    <header class="content-header">
+      <div class="content-id" contenteditable="true">叫我 Ryder 就好</div>
+      <div class="content-date" contenteditable="true">2026.06.17</div>
+    </header>
+
+    <!-- 内容区：替换为正文 -->
+    <div class="content-body">
+      <div class="content-section-title" contenteditable="true">段落小标题</div>
+      <div class="content-text" contenteditable="true">
+        正文内容。替换为这一页要讲的要点。
+      </div>
+      <div class="content-text" contenteditable="true">
+        支持 <span class="content-highlight">红色高亮</span> 强调关键词。
+      </div>
+    </div>
+
+    <!-- 底部页脚 -->
+    <footer class="content-footer">
+      <div class="content-signature" contenteditable="true">Ryder's KOL Intelligence</div>
+      <div class="content-issue" contenteditable="true">ISSUE 013 · 2026</div>
+    </footer>
+  </main>
+</body>
+</html>

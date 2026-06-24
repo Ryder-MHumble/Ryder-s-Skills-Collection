@@ -1,0 +1,390 @@
+/* ============================================================
+   小红书新野兽派封面/内页模版 — v1 PIL 对齐版
+   视觉规范 1:1 对齐 card_generator.py 的 render_cover_complex 输出
+   卡片尺寸：1200 × 1600 (3:4)，与 PIL 输出完全一致
+   ============================================================ */
+
+:root {
+  --paper: #f1e2cc;
+  --paper-2: #f6e8d5;
+  --soft: #fff9ed;
+  --ink: #080808;
+  --red: #f0442e;
+  --yellow: #ffd72e;
+  --muted: #6d6255;
+  --unit: 24px;
+  --card-w: 1200px;
+  --card-h: 1600px;
+  --border: 8px;
+  --font-cn: "STHeiti", "Heiti SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-ui: "Arial Black", Impact, "DIN Condensed", sans-serif;
+  --font-mono: "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #16120f;
+  color: var(--ink);
+  font-family: var(--font-cn);
+}
+
+.preview-page {
+  display: grid;
+  gap: 40px;
+  justify-items: center;
+  padding: 40px;
+}
+
+.xhs-card {
+  position: relative;
+  width: var(--card-w);
+  height: var(--card-h);
+  overflow: hidden;
+  background-color: var(--paper);
+  border: 16px solid var(--ink);
+  isolation: isolate;
+}
+
+/* 信纸底纹：横线 + 噪点（对齐 PIL make_paper_overlay） */
+.xhs-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 20px, rgba(8,8,8,.13) 20px 21px, transparent 21px 22px),
+    radial-gradient(circle at 11px 7px, rgba(8,8,8,.22) 0 1px, transparent 1.4px) 0 0 / 31px 29px,
+    radial-gradient(circle at 17px 13px, rgba(255,255,255,.22) 0 1px, transparent 1.5px) 0 0 / 47px 43px,
+    var(--paper);
+}
+
+/* 右下黑色斜切角（cs=200，对齐 PIL） */
+.xhs-card::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  height: 200px;
+  background: var(--ink);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* 顶部红方块（左上角，bw+0 到 bw+206, bw+0 到 bw+126，对齐 PIL） */
+.card-red-corner {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 206px;
+  height: 126px;
+  background: var(--red);
+  z-index: 1;
+}
+
+/* ============================================================
+   顶部：左 ID 卡 + 右 KOL 角标（贴边不对称）
+   对齐 PIL：id_x=46, id_y=46, 690×104
+   ============================================================ */
+
+.identity {
+  position: absolute;
+  left: 46px;
+  top: 46px;
+  width: 690px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 10px 24px;
+  background: var(--soft);
+  border: 6px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--red);
+  z-index: 3;
+}
+
+.logo-slot {
+  width: 76px;
+  height: 76px;
+  background: var(--ink);
+  border: 6px solid var(--ink);
+  display: grid;
+  place-items: center;
+  font: 900 14px/1 var(--font-ui);
+  color: var(--soft);
+  letter-spacing: -.02em;
+  flex-shrink: 0;
+  /* PIL 实际渲染是真实头像图（76x76 PNG），HTML 模版留 placeholder */
+}
+
+.identity-name {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 顶部 KOL 角标（右上贴边） */
+.top-badge {
+  position: absolute;
+  right: 54px;
+  top: 34px;
+  min-width: 270px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  padding: 0 28px;
+  background: var(--ink);
+  color: var(--soft);
+  font: 900 35px/1 var(--font-ui);
+  letter-spacing: .02em;
+  z-index: 3;
+}
+
+/* ============================================================
+   meta-rail（横贯，对齐 PIL top=202, 6px 黑线 + 4 tick 标记）
+   PIL tick 位置：46, 306, 566, 826 (260px 间距)
+   ============================================================ */
+
+.meta-rail {
+  position: absolute;
+  left: 46px;
+  right: 46px;
+  top: 202px;
+  height: 80px;
+  border-top: 6px solid var(--ink);
+  z-index: 2;
+}
+
+.meta-rail::before,
+.meta-rail::after {
+  content: "";
+  position: absolute;
+  top: -29px;
+  width: 5px;
+  height: 48px;
+  background: var(--ink);
+  box-shadow: 260px 0 0 var(--ink), 520px 0 0 var(--ink), 780px 0 0 var(--ink);
+}
+.meta-rail::before { left: 0; }
+.meta-rail::after { right: 0; box-shadow: none; }
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 18px;
+  text-align: left;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+/* ============================================================
+   主标题 3 行（居中）+ 副标题（居中）— 视觉重心
+   对齐 PIL：title-1/2/3 居中，subtitle 居中
+   ============================================================ */
+
+.title-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid var(--ink);
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;          /* 居中 */
+  white-space: nowrap;
+}
+
+.title-1 {
+  position: absolute;
+  top: 302px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;                /* 70% 宽（小于全宽，留两侧留白） */
+  height: 162px;
+  padding: 35px 0;
+  background: var(--soft);
+  box-shadow: 14px 14px 0 var(--red);
+  font-size: 92px;
+  z-index: 2;
+}
+
+.title-2 {
+  position: absolute;
+  top: 494px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  height: 162px;
+  padding: 35px 0;
+  background: var(--ink);
+  color: var(--soft);
+  box-shadow: 14px 14px 0 var(--red);
+  font-size: 92px;
+  z-index: 2;
+}
+
+.title-3 {
+  position: absolute;
+  top: 688px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 186px;
+  padding: 37px 0;
+  background: var(--red);
+  color: var(--ink);
+  box-shadow: 14px 14px 0 var(--yellow);
+  font-size: 112px;
+  z-index: 2;
+}
+
+.subtitle-bar {
+  position: absolute;
+  top: 930px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  height: 112px;
+  background: var(--soft);
+  border: 7px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--red);
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  margin: 0;
+  z-index: 2;
+}
+
+/* ============================================================
+   装饰：黑红条纹（横贯）+ 4 个 + 标记（错位）
+   对齐 PIL：stripe_y=1080, +标记 4 个错位
+   ============================================================ */
+
+.stripe {
+  position: absolute;
+  left: 46px;
+  right: 46px;
+  top: 1080px;
+  height: 34px;
+  background: linear-gradient(90deg, var(--ink) 0 36%, transparent 36% 37%, var(--red) 37% 56%, transparent 56% 57%, var(--ink) 57% 100%);
+  z-index: 1;
+}
+
+.plus-marker {
+  position: absolute;
+  font: 900 58px/1 var(--font-ui);
+  color: var(--ink);
+  z-index: 2;
+}
+.plus-marker.red { color: var(--red); }
+
+.plus-1 { right: 96px;  top: 280px; }
+.plus-2 { right: 120px; top: 960px; }
+.plus-3 { left: 66px;   top: 1126px; }
+.plus-4 { left: 420px;  bottom: 110px; }
+
+/* ============================================================
+   底部：左 stamp + 右 support 卡（贴边不对称）
+   对齐 PIL：stamp_x=46, stamp_y=1140, 350×220
+             sup_x=w-54-626=520, sup_y=1140, 626×266
+   ============================================================ */
+
+.page-stamp {
+  position: absolute;
+  left: 46px;
+  top: 1140px;
+  width: 380px;
+  height: 220px;
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  background: var(--red);
+  border: 7px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--ink);
+  z-index: 3;
+}
+
+.page-number {
+  display: grid;
+  place-items: center;
+  color: var(--soft);
+  font: 900 130px/.85 var(--font-ui);
+}
+
+.stamp-meta {
+  padding: 36px 20px;
+  border-left: 6px solid var(--ink);
+  font: 900 34px/1.45 var(--font-ui);
+  color: var(--soft);
+}
+
+.support-card {
+  position: absolute;
+  right: 54px;
+  top: 1140px;
+  width: 626px;
+  height: 266px;
+  padding: 26px 34px;
+  background: var(--soft);
+  border: 7px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--red);
+  z-index: 3;
+}
+
+.support-title {
+  margin: 0 0 14px;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.support-chip {
+  display: inline-grid;
+  place-items: center;
+  min-width: 356px;
+  height: 48px;
+  margin-bottom: 24px;
+  background: var(--ink);
+  color: var(--soft);
+  font: 900 25px/1 var(--font-ui);
+}
+
+.support-name {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.support-tag {
+  margin: 0;
+  font: 900 18px/1.35 var(--font-ui);
+  color: var(--red);
+  letter-spacing: .04em;
+}
+
+.barcode {
+  position: absolute;
+  right: 26px;
+  top: 26px;
+  width: 140px;
+  height: 94px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 5px, transparent 5px 12px, var(--ink) 12px 20px, transparent 20px 28px);
+}
+
+.footer-note {
+  position: absolute;
+  left: 46px;
+  bottom: 28px;
+  font: 900 25px/1 var(--font-ui);
+  letter-spacing: .02em;
+  z-index: 2;
+}

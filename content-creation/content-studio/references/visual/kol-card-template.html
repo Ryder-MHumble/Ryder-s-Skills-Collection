@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KOL 卡片模板 · 标题居中 + 边缘不对称</title>
+  <link rel="stylesheet" href="kol-card-style.css" />
+</head>
+<body class="preview-page">
+  <!--
+    ============================================================
+    KOL 卡片模板 v1.0（content-studio KOL 04 模式）
+    ============================================================
+    设计语言：brutalist 杂志风（参考 xhs-brutalist-cards）
+    核心张力：标题居中（视觉重心）+ 边缘装饰不对称（节奏感）
+
+    画布：1240 × 1654（3:4 竖图，适配小红书 / X）
+    画布坐标系：左上角 (0,0)，所有 absolute 定位均基于此
+
+    元素清单（按视觉层次）：
+    ┌─────────────────────────────────────────┐
+    │ TOP ROW（y=46~150）                    │
+    │   • 左：ID 标签卡（贴左边 46px）         │
+    │   • 右：KOL 编号角标（贴右边 54px）      │
+    │ ├─ 红线分隔（y=200）                    │
+    │ HEAD ROW（y=240~560）                  │
+    │   • 左：头像（偏左 120px）              │
+    │   • 右：装饰方块（贴右边）              │
+    │ ├─ 主标题 3 行（y=620~1100，全部居中）  │
+    │ ├─ 副标题盒（y=1240，居中）             │
+    │ BOTTOM ROW（y=1430~）                  │
+    │   • 左：01 stamp（贴左）                │
+    │   • 中：条形码（不规则间距）             │
+    │   • 右：RYDER 卡（贴右）                │
+    └─────────────────────────────────────────┘
+
+    替换内容时，只改 contenteditable="true" 的文字内容。
+    颜色 / 字体 / 尺寸都通过 :root 变量控制。
+    ============================================================
+  -->
+
+  <main class="kol-card" aria-label="KOL 卡片模板">
+    <!-- ==================== 顶部分隔条 ==================== -->
+    <div class="frame-line top" aria-hidden="true"></div>
+    <div class="frame-line bottom" aria-hidden="true"></div>
+
+    <!-- ==================== 顶部：左 ID 标签 ==================== -->
+    <!--
+      替换：identity-name 内的账号/栏目名
+      替换：logo-slot 内的 LOGO 文字（可换成 <img> 嵌入头像）
+    -->
+    <header class="identity" aria-label="账号身份位（左侧）">
+      <div class="logo-slot" contenteditable="true">LOGO</div>
+      <div class="identity-name" contenteditable="true">账号名 / 栏目名</div>
+    </header>
+
+    <!-- ==================== 顶部：右 KOL 编号角标 ==================== -->
+    <!--
+      替换：kol-number 内的编号（例：04 = 第 4 期）
+      替换：kol-label 内的英文标签（例：KOL INTEL / SERIES）
+    -->
+    <div class="kol-badge" aria-label="KOL 编号角标（右侧）">
+      <div class="kol-number" contenteditable="true">04</div>
+      <div class="kol-label" contenteditable="true">KOL INTEL</div>
+    </div>
+
+    <!-- ==================== 红线分隔 ==================== -->
+    <div class="red-divider" aria-hidden="true"></div>
+
+    <!-- ==================== 头部：左 头像 ==================== -->
+    <!--
+      替换 src 为你的头像路径。3 种方式选 1：
+      1) base64 嵌入（最稳，但文件大）
+      2) 同目录放 avatar.png 后 src="./avatar.png"
+      3) 绝对 file:// 路径（仅本机预览用）
+    -->
+    <div class="head-avatar" aria-label="头像（左侧）">
+      <img src="./avatar.png" alt="avatar" class="avatar-img" />
+    </div>
+
+    <!-- ==================== 头部：右 装饰方块 ==================== -->
+    <!--
+      装饰方块：黑色硬投影 + 黄底 + 黑边
+      可选替换为：标签云 / 数字 / 几何符号
+    -->
+    <div class="head-deco" aria-hidden="true">
+      <div class="deco-tag" contenteditable="true">TAG</div>
+      <div class="deco-line"></div>
+      <div class="deco-num" contenteditable="true">001</div>
+    </div>
+
+    <!-- ==================== 主标题 3 行（全部居中）==================== -->
+    <!--
+      核心：3 行都用 box 包起来，但每个 box 水平居中对齐。
+      3 个 box 宽度故意不同（制造视觉节奏），但都居中。
+      替换：line-1 / line-2 / line-3 的文字
+    -->
+    <h1 class="title-line title-line-1" contenteditable="true">主标题第一行</h1>
+    <h1 class="title-line title-line-2" contenteditable="true">主标题第二行</h1>
+    <h1 class="title-line title-line-3" contenteditable="true">主标题第三行</h1>
+
+    <!-- ==================== 副标题盒（居中）==================== -->
+    <!--
+      替换：subtitle 内的文字（一句话承诺 / 痛点 / 转化钩子）
+    -->
+    <p class="subtitle-box" contenteditable="true">副标题 / 痛点 / 一句话承诺</p>
+
+    <!-- ==================== 底部：左 01 stamp ==================== -->
+    <!--
+      替换：stamp-num 内的数字（01/02/03...）
+      替换：stamp-meta 内的 3 行英文
+    -->
+    <aside class="stamp-card" aria-label="页码 stamp（左侧）">
+      <div class="stamp-num" contenteditable="true">01</div>
+      <div class="stamp-meta">
+        <div contenteditable="true">COVER</div>
+        <div contenteditable="true">KOL</div>
+        <div contenteditable="true">CARD</div>
+      </div>
+    </aside>
+
+    <!-- ==================== 底部：中 条形码 ==================== -->
+    <!--
+      装饰元素：竖条 + 数字编号（无文字）
+    -->
+    <div class="barcode-block" aria-hidden="true">
+      <div class="barcode"></div>
+      <div class="barcode-label" contenteditable="true">BARCODE / 04</div>
+    </div>
+
+    <!-- ==================== 底部：右 RYDER 卡 ==================== -->
+    <!--
+      替换：ryder-chip 内的英文标签
+      替换：ryder-title 内的标题
+      替换：ryder-copy 内的描述
+    -->
+    <aside class="ryder-card" aria-label="RYDER 签名卡（右侧）">
+      <div class="ryder-chip" contenteditable="true">AI PM / WEEKLY</div>
+      <h3 class="ryder-title" contenteditable="true">RYDER 签名</h3>
+      <p class="ryder-copy" contenteditable="true">副标题文字 / 证据 / 钩子</p>
+    </aside>
+
+    <!-- ==================== 页脚 ==================== -->
+    <!--
+      替换：footer-note 内的英文签名档
+    -->
+    <footer class="footer-note" contenteditable="true">KOL CARD TEMPLATE / CENTERED TITLE + ASYMMETRIC EDGE / 1240X1654</footer>
+  </main>
+</body>
+</html>

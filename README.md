@@ -12,7 +12,7 @@
 Ryder-s-Skills-Collection/
 ├── research-intelligence/     调研与情报（9 个）
 ├── video-motion/              视频与动画（4 个）
-├── content-creation/          内容创作（4 个）
+├── content-creation/          内容创作（5 个）
 ├── personal-insights/         自我洞察（1 个）
 ├── frontend-dev/              前端开发（1 个）
 ├── README.md                  中文版（本文件）
@@ -52,12 +52,13 @@ Ryder-s-Skills-Collection/
 
 ### content-creation/ — 内容创作
 
-PPT 生成、文档配图、文档处理、文本去 AI 味。适合内容生产者。
+PPT 生成、社媒 IP 内容、文档配图、文档处理、文本去 AI 味。适合内容生产者。
 
 | Skill | 版本 | 体积 | 一句话 | 适合谁 |
 |---|---|---|---|---|
 | **NanoBanana-PPT-Skills** | — | 160KB | PPT 画面生成 + 转场视频（风格选择 + 图片生成 + 视频合成）| 做 PPT 的人 |
 | **Document-illustrator-skill** | — | 183KB | 文档自动配图（AI 分析结构 + 生成符合风格的配图）| 写文档要配图的人 |
+| **content-studio** | — | 6.5MB | 个人社媒 IP 内容工作室（小红书/X/抖音/B站文案 + 图文卡片模板 + 固定专题模板）| 做个人 IP 和社媒内容的人 |
 | **document-skills** | — | 2.4MB | 文档处理工具集 | 处理各类文档的人 |
 | **Humanizer-zh** | — | 26KB | 中文文本去 AI 痕迹（夸大象征/宣传性语言/三段式...）| 用 AI 写完要润色的人 |
 
@@ -91,6 +92,7 @@ React 组件选择与集成。适合前端开发者。
 | 给访谈视频加特效 | `Video-Wrapper-Skills` |
 | 从 YouTube 剪短视频 | `Youtube-clipper-skill` |
 | 做 PPT | `NanoBanana-PPT-Skills` |
+| 做个人 IP 社媒图文 | `content-studio` |
 | 给文档配图 | `Document-illustrator-skill` |
 | 去掉文本的 AI 味 | `Humanizer-zh` |
 | 从工作痕迹认识自己 | `work-selfie` |

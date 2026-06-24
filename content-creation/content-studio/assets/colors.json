@@ -1,0 +1,131 @@
+{
+  "_comment": "content-studio 配色方案。所有颜色以 #RRGGBB 格式存储。",
+
+  "neo-brutalism": {
+    "light": {
+      "name": "Swiss Industrial Print",
+      "background": "#F4F4F0",
+      "foreground": "#050505",
+      "accent": "#E61919",
+      "muted": "#737373",
+      "border": "#050505",
+      "secondary": "#FFD700"
+    },
+    "dark": {
+      "name": "Tactical Telemetry",
+      "background": "#0A0A0A",
+      "foreground": "#EAEAEA",
+      "accent": "#E61919",
+      "muted": "#737373",
+      "border": "#EAEAEA",
+      "secondary": "#4AF626"
+    },
+    "bold": {
+      "name": "Bold Color",
+      "background": "#FFE600",
+      "foreground": "#050505",
+      "accent": "#FF2A2A",
+      "muted": "#050505",
+      "border": "#050505",
+      "secondary": "#0066FF"
+    }
+  },
+
+  "mckinsey": {
+    "default": {
+      "name": "Standard Consulting",
+      "background": "#FAF8F3",
+      "primary": "#1F4E79",
+      "foreground": "#1A1A1A",
+      "accent": "#B22222",
+      "muted": "#7F7F7F",
+      "border": "#E5E5E5"
+    },
+    "dark": {
+      "name": "Dark Insight",
+      "background": "#1A1F2E",
+      "primary": "#4A90E2",
+      "foreground": "#F5F5F5",
+      "accent": "#E8B86D",
+      "muted": "#9CA3AF",
+      "border": "#2C3340"
+    },
+    "minimal": {
+      "name": "Minimal White",
+      "background": "#FFFFFF",
+      "primary": "#1F4E79",
+      "foreground": "#111827",
+      "accent": "#DC2626",
+      "muted": "#6B7280",
+      "border": "#F3F4F6"
+    }
+  },
+
+  "swiss-grid": {
+    "pure-white": {
+      "name": "Pure White",
+      "background": "#FFFFFF",
+      "foreground": "#0A0A0A",
+      "accent": "#FF3B30",
+      "muted": "#737373",
+      "border": "#E5E5E5"
+    },
+    "pure-black": {
+      "name": "Pure Black",
+      "background": "#0A0A0A",
+      "foreground": "#FAFAFA",
+      "accent": "#FF3B30",
+      "muted": "#A3A3A3",
+      "border": "#262626"
+    },
+    "cream": {
+      "name": "Cream Warm",
+      "background": "#F5F1E8",
+      "foreground": "#1A1A1A",
+      "accent": "#DC2626",
+      "muted": "#6B6B6B",
+      "border": "#D4CCBC"
+    }
+  },
+
+  "notion-minimal": {
+    "default": {
+      "name": "Notion Default",
+      "background": "#FBFAF7",
+      "foreground": "#37352F",
+      "accent": "#D44C47",
+      "muted": "#9B9A97",
+      "border": "#EBEBE8"
+    },
+    "dark": {
+      "name": "Notion Dark",
+      "background": "#191919",
+      "foreground": "#E6E6E5",
+      "accent": "#FF6B6B",
+      "muted": "#7A7A78",
+      "border": "#2C2C2C"
+    }
+  },
+
+  "cyber-neon": {
+    "default": {
+      "name": "Cyber Neon",
+      "background": "#0A0E27",
+      "foreground": "#E0E7FF",
+      "accent": "#00F0FF",
+      "secondary": "#FF00E5",
+      "muted": "#6B7280",
+      "border": "#1E2444"
+    }
+  },
+
+  "_ryder_default": {
+    "_comment": "Ryder 个人 IP 推荐配色（基于 user profile）",
+    "primary": "#1F4E79",
+    "secondary": "#7F7F7F",
+    "accent": "#B22222",
+    "background": "#FAF8F3",
+    "text": "#1A1A1A",
+    "signature_element": "🟠"
+  }
+}

@@ -12,7 +12,7 @@ A personal AI Agent skill library. Contains skills I use regularly and have vali
 Ryder-s-Skills-Collection/
 ├── research-intelligence/     Research & Intelligence (9 skills)
 ├── video-motion/              Video & Motion (4 skills)
-├── content-creation/          Content Creation (4 skills)
+├── content-creation/          Content Creation (5 skills)
 ├── personal-insights/         Personal Insights (1 skill)
 ├── frontend-dev/              Frontend Development (1 skill)
 ├── README.md                  Chinese version
@@ -52,12 +52,13 @@ Social media video production, video post-processing, video download/clipping. F
 
 ### content-creation/ — Content Creation
 
-PPT generation, document illustration, document processing, AI-text de-identification. For content producers.
+PPT generation, social media IP content, document illustration, document processing, AI-text de-identification. For content producers.
 
 | Skill | Version | Size | One-liner | Who it's for |
 |---|---|---|---|---|
 | **NanoBanana-PPT-Skills** | — | 160KB | PPT visual generation + transition videos (style selection + image gen + video composition) | Anyone making PPTs |
 | **Document-illustrator-skill** | — | 183KB | Auto-generate document illustrations (AI analyzes structure + generates style-matched images) | Anyone needing illustrations for documents |
+| **content-studio** | — | 6.5MB | Personal social media IP content studio (Xiaohongshu/X/Douyin/Bilibili copy + card templates + reusable series templates) | Anyone building a personal IP or social content system |
 | **document-skills** | — | 2.4MB | Document processing toolkit | Anyone processing various documents |
 | **Humanizer-zh** | — | 26KB | Remove AI traces from Chinese text (exaggerated symbolism/promotional language/rule-of-three...) | Anyone polishing AI-generated text |
 
@@ -91,6 +92,7 @@ React component selection and integration. For frontend developers.
 | Add effects to interview videos | `Video-Wrapper-Skills` |
 | Clip short videos from YouTube | `Youtube-clipper-skill` |
 | Make PPTs | `NanoBanana-PPT-Skills` |
+| Create personal IP social posts | `content-studio` |
 | Add illustrations to documents | `Document-illustrator-skill` |
 | Remove AI tone from text | `Humanizer-zh` |
 | Understand yourself through work traces | `work-selfie` |
